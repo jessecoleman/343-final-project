@@ -1,10 +1,15 @@
-div h1 {
-	font-size: 22px;
-	text-align: center;
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900);
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
 }
 
-form input {
-	width: 520px;
+div h1 {
+  font-family: 'Source Sans Pro', sans-serif;
+	font-size: 2em;
+  font-weight: 900;
+	text-align: center;
 }
 
 #login {
@@ -40,3 +45,8 @@ form input {
 #top {
 	text-align: center;
 }
+
+form input {
+	width: 520px;
+}
+
