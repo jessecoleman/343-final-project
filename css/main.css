@@ -12,6 +12,19 @@ div h1 {
 	text-align: center;
 }
 
+form button {
+	border: solid 1px gray;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+form input {
+	border: solid 1px gray;
+	border-radius: 5px;
+	padding: 5px;
+	width: 500px;
+}
+
 #login {
 	text-align: right;
 }
@@ -46,7 +59,4 @@ div h1 {
 	text-align: center;
 }
 
-form input {
-	width: 520px;
-}
 
