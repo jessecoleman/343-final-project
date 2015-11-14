@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="css/main.css">
-	<title>Welp</title>
+	<title>Results</title>
 
 	<!-- Styles -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -15,25 +15,21 @@
 		<button class="btn btn-warning">Login</button>
 	</div>
 	<div id="search"> 
+		<img src="assets/welp.png" alt="welp" height="50px" width="100px" />
 		<form>
-			<input name="search" placeholder="Enter your search..." class="form-control"></input>
-			<button id="submit" class="btn btn-primary" type="submit">Submit</button>
+			<input name="search" placeholder="Enter your search..."></input>
+			<button id="submit" type="submit">Submit</button>
 		</form>
 	</div>
-
-	<div class="container">
-		<div class="col-md-4">
-			<h1>Classes</h1>
-			<h1>Majors</h1>
-		</div>
-		<div class="col-md-4">
-			<h1>Food</h1>
-			<h1>Dining Halls</h1>
-		</div>
-		<div class="col-md-4">
-			<h1>Activities</h1>
-			<h1>RSOs</h1>
-		</div>
+	
+	<div id="results">
+		<h1>Results:</h1>
+		<ul>
+			<li>Classes</li>
+			<li>Restaurants</li>
+			<li>Activities</li>
+			<li>RSOs</li>
+		</ul>
 	</div>
 </body>
 </html>
