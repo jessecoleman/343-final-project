@@ -1,0 +1,22 @@
+div h1 {
+	font-size: 22px;
+	text-align: center;
+}
+
+#login {
+	text-align: right;
+}
+
+#logo {
+	text-align: center;
+}
+
+#search {
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+}
+
+#submit {
+	background-color: #330A6D;
+}
