@@ -1,0 +1,28 @@
+div h1 {
+	font-size: 22px;
+	text-align: center;
+}
+
+form input {
+	width: 520px;
+}
+
+#login {
+	text-align: right;
+}
+
+#logo {
+	text-align: center;
+}
+
+#search {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 600px;
+}
+
+#submit {
+	background-color: #330A6D;
+	color: white;
+}
