@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+            <img id="logo" src="assets/Welp_logo.svg" />
+            <form role="form">
+                <div class="form-group">
+                    <input type="text" name="search" placeholder="Enter your search..." >
+                    <button id="submit" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-lg-4 category" ng-repeat="category in categories">
+            <a href="templates/review.html"><h1>{{category}}</h1></a>
+        </div>
+    </div>
+</div>
