@@ -1,7 +1,6 @@
 //Angular ui-router
-
 var app = angular.module('app', ['firebase', 'ui.router'])
-
+//configure pages
 .config(function($stateProvider) {
     $stateProvider.state('home', {
         url: '/',
