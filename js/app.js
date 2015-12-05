@@ -3,7 +3,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 //configure pages
 .config(function($stateProvider) {
     $stateProvider.state('home', {
-        url: '/',
+        url: '',
         templateUrl: 'templates/home.html',
         controller: 'HomeController'
     })
@@ -168,6 +168,22 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	}
 })
 .controller('ReviewClassController', function($scope, $state, $stateParams) {
+
+  	$(function() {
+    	$('.bar').barrating({
+       		theme: 'bars-movie',
+       		readonly: true
+     	});
+
+     	$('.review').barrating({
+     		theme: 'bars-movie'
+     	});
+  	});
+
+  	$scope.saveReview = function() {
+		console.log($scope.workload)
+  	}
+
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
 	var departments = ref.child('departments');
 	$scope.classTitle = $stateParams.class.classTitle + $stateParams.class.courseNumber;

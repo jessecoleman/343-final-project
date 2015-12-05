@@ -31,8 +31,27 @@ body {
 		#bottom { bottom: 0;
 }
 
+#bottom, #left, #right {
+	background: #BBDAF6;
+	position: fixed;
+  z-index: 1;
+	}
+	#left, #right {
+		top: 0; bottom: 0;
+		width: 15px;
+		}
+		#left { left: 0; }
+		#right { right: 0; }
+
+	#bottom {
+		left: 0; right: 0;
+		height: 15px;
+		}
+
+		#bottom { bottom: 0;
+}
+
 #content {
-  border-top: none;
   padding: 2em;
   padding-top: 6em;
 
@@ -52,6 +71,7 @@ nav {
     z-index: 3;
     left: 0;
     top: 0;
+
     color: #e5e5e5;
 }
 
@@ -87,6 +107,7 @@ div h1 {
 
 h3 {
     font-weight: 900;
+
     font-family: 'Source Sans Pro', sans-serif;
     color: #384149;
 
@@ -95,7 +116,7 @@ h3 {
 
 li {
     list-style: none;
-    font-size: 12pt;
+    font-size: 14pt;
 
     color: #384149;
 }
@@ -104,6 +125,8 @@ ul {
     padding-left: 20px;
 }
 
+<<<<<<< HEAD
+=======
 #browse {
   line-height: 2;
 }
@@ -180,6 +203,7 @@ ul {
 #add:hover {
   color: #8298ac !important;
 }
+
 
 .pointer:hover {
   cursor: pointer;
