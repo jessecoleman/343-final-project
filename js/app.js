@@ -22,6 +22,12 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		templateUrl: 'templates/create-class.html',
 		controller: 'CreateClassController',
 		params: {'department': null}
+	})
+	.state('reviewClass', {
+		url: '/browse/review',
+		templateUrl: 'templates/review.html',
+		controller: 'ReviewClassController',
+		params: {'class': null}
 	});
 })
 .controller('MainController', function($scope, $state, $firebaseAuth, $firebaseObject) {
@@ -127,7 +133,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		$scope.logOut();
 	}
 })
-.controller('CreateClassController', function($scope, $state, $stateParams, $firebaseArray, $firebaseObject) {
+.controller('CreateClassController', function($scope, $state, $stateParams, $firebaseArray) {
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
 	var departments = ref.child('departments');
 	var department = departments.child($stateParams.department.$id);
@@ -144,4 +150,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		$scope.classes.$save();
 		$state.go('browse');
 	}
+})
+.controller('ReviewClassController', function($scope, $state, $stateParams) {
+	console.log($stateParams.class);
 });

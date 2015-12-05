@@ -7,7 +7,7 @@
                     <span>{{department.title}}</span>
                     <br>
                     <ul>
-                        <li ng-repeat="class in department.classes">{{class.classTitle + ' ' + class.courseNumber}}</li>
+                        <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'class': class})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
                         <li><a ui-sref="createClass({'department': department})">Add another class</a></li>
                     </ul>
                 </li>
