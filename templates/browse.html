@@ -1,15 +1,19 @@
 <div class="wrapper">
     <div>
-        <div>
+        <div id="browse">
             <h3>Departments</h3>
             <ul>
                 <li ng-repeat="department in departments">
-                   <span ng-click="clicked ? clicked = false : clicked = true"> <i class="fa fa-caret-right" ng-show="!clicked"></i><i class="fa fa-caret-down" ng-show="clicked"></i> {{department.title}}</span>
+                   <span ng-click="clicked ? clicked = false : clicked = true" class="pointer"> <i class="fa fa-caret-right" ng-show="!clicked"></i><i class="fa fa-caret-down" ng-show="clicked"></i> {{department.title}}</span>
+
                     <a ui-sref="createClass({'department': department})" id="add">+</a>
+
                     <br>
+
                     <ul ng-show="clicked">
                         <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'class': class})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
                     </ul>
+
                 </li>
             </ul>
         </div>
