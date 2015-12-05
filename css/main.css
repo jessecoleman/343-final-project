@@ -122,6 +122,10 @@ ul {
   margin-bottom: 0;
 }
 
+#submit-review {
+  margin-left: 0;
+}
+
 .bar-group {
   margin: 0.5em;
 
@@ -162,13 +166,6 @@ ul {
 
 #top {
 	text-align: center;
-}
-
-body {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 400;
-    margin: 0;
-    padding: 0;
 }
 
 #login {
