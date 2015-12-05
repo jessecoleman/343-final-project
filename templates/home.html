@@ -29,13 +29,28 @@
 
           </div>
       </form>
+      <ul>
+          <li ng-repeat="department in departments | filter: search" ng-show="search">
 
+             <span ng-click="clicked ? clicked = false : clicked = true" class="pointer"> <i class="fa fa-caret-right" ng-show="!clicked && department.classes"></i><i class="fa fa-caret-down" ng-show="clicked && department.classes"></i> {{department.title}}</span>
 
+              <a ui-sref="createClass({'department': department})" id="add">+</a>
+
+              <br>
+
+              <ul ng-show="clicked">
+                  <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'class': class})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
+              </ul>
+
+          </li>
+      </ul>
+
+<!-- 
       <div class="category" ng-repeat="department in departments | filter: search" ng-show="search">
           <a href="templates/review.html"><h3>{{department.title}}</h3></a>
-
-      <div class="category" ng-repeat="category in categories">
-          <a href="templates/review.html"><h3>{{category}}</h3></a>
       </div>
+      <div class="category" ng-repeat="class in department.classes">
+          <a href="templates/review.html"><h3>{{class.classTitle}}</h3></a>
+      </div> -->
 
 </div>
