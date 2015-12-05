@@ -60,6 +60,19 @@ div h1 {
 	text-align: center;
 }
 
+h3 {
+    font-weight: 900;
+}
+
+li {
+    list-style: none;
+    font-size: 14pt;
+}
+
+ul {
+    padding-left: 20px;
+}
+
 .bar-group {
   margin: 0.5em;
 
@@ -110,15 +123,11 @@ body {
     float: right;
 }
 
-h3 {
-    font-weight: 900;
+#add {
+  text-decoration: none;
+  color: #BBDAF6 !important;
 }
 
-li {
-    list-style: none;
-    font-size: 14pt;
-}
-
-ul {
-    padding-left: 20px;
+#add:hover {
+  color: #8298ac !important;
 }
