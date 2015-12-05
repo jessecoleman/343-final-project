@@ -54,6 +54,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
 	var departmentsRef = ref.child('departments');
 	$scope.departments = $firebaseArray(departmentsRef);
+	$scope.clicked = false; 
 })
 .controller('LoginController', function($scope, $state, $firebaseAuth, $firebaseObject, $firebaseArray) {
   // display sign in first
