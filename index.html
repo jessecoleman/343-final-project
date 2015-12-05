@@ -26,7 +26,7 @@
 
 	<body ng-app="app" ng-controller="MainController">
 
-		<nav>
+		<nav class="z10">
 			<ul>
 				<li><a ui-sref="home">Welp</a></li>
 				<li><a ui-sref="browse">Browse</a></li>
@@ -42,6 +42,10 @@
 				</li>
 			</ul>
 		</nav>
+
+		<div id="left" class="z9"></div>
+		<div id="right" class="z9"></div>
+		<div id="bottom" class="z9"></div>
 
 		<!-- ui-view loads html fragments from templates directory -->
 		<div ui-view class="wrapper wrapper-full-bleed" id="content">

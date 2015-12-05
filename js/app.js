@@ -152,14 +152,19 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	}
 })
 .controller('ReviewClassController', function($scope, $state, $stateParams) {
-	// console.log($stateParams.class);
+
   	$(function() {
     	$('.bar').barrating({
-       		theme: 'bars-movie'
+       		theme: 'bars-movie',
+       		readonly: true
      	});
 
-     	$('#test').barrating({
-     		readonly: true,
-     	})
+     	$('.review').barrating({
+     		theme: 'bars-movie'
+     	});
   	});
+
+  	$scope.saveReview = function() {
+		console.log($scope.workload)
+  	}
 });

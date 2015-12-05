@@ -55,7 +55,7 @@
 		<!-- grading -->
 		<h3>Grading and Leniency</h3>
 		<div class="bar-group">
-			<select class="bar test">
+			<select class="bar">
 				<option value=""></option>
 			    <option value="1">GPA Booster</option>
 			    <option value="2">Fair</option>
@@ -75,7 +75,7 @@
 			<div class="bar-group">
 				<!-- workload -->
 				<h3>Workload</h3>
-			  	<select class="bar">
+			  	<select class="review" ng-model="workload">
 					<option value=""></option>
 				    <option value="1">Little</option>
 				    <option value="2">Fair</option>
@@ -83,11 +83,10 @@
 				    <option value="4">Torture</option>
 			  	</select>
 			</div>
-
 			<!-- difficulty -->
 			<h3>Difficulty</h3>
 			<div class="bar-group">
-				<select class="bar">
+				<select class="review" >
 					<option value=""></option>
 				    <option value="1">Easy</option>
 				    <option value="2">Manageable</option>
@@ -99,7 +98,7 @@
 			<!-- grading -->
 			<h3>Grading and Leniency</h3>
 			<div class="bar-group">
-				<select class="bar">
+				<select class="review">
 					<option value=""></option>
 				    <option value="1">GPA Booster</option>
 				    <option value="2">Fair</option>
@@ -131,7 +130,7 @@
 				</br>
 					<textarea class="form-textarea" rows="8" cols="82" placeholder="Enter your message here"></textarea>
 				</br>
-					<input id="button" type="submit" class="btn btn-primary" value="Save">
+					<input id="button" type="submit" class="btn btn-primary" value="Save" ng-click="saveReview()">
 					</fieldset>
 	      		</form>
 			</div>
