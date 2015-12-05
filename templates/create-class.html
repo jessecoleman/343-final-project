@@ -1,10 +1,11 @@
 <h2>Add a class from {{departmentTitle}} to our database</h2>
 <form>
-    <label for="class-title">Class Title</label>
-    <input id="class-title" type="text" ng-model="classTitle" />
+    <label for="class-title">Class Title</label><br>
+    <input id="class-title" type="text" ng-model="classTitle" /><br>
 
-    <label for="course-number">Course Number</label>
-    <input id="course-number" type="number" ng-model="courseNumber" />
-    <textarea id="description" ng-model="description"></textarea>
+    <label for="course-number">Course Number</label><br>
+    <input id="course-number" type="number" ng-model="courseNumber" /><br>
+    <label for="description">Description</label><br>
+    <textarea id="description" ng-model="description"></textarea><br>
     <button ng-click="submitClass()">Submit</button>
 </form>

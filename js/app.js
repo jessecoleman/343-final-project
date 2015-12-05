@@ -47,8 +47,16 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	$scope.user = {};
 
 })
-.controller('HomeController', function($scope, $state) {
-	console.log($scope.user);
+.controller('HomeController', function($scope, $state, $filter, $firebaseArray) {
+	var ref = new Firebase("https://welp-uw.firebaseio.com");
+	var departmentsRef = ref.child('departments');
+	$scope.departments = $firebaseArray(departmentsRef);
+
+	$scope.showResults = false;
+	$scope.searchClasses = function() {
+		$scope.showResults = true;
+		console.log('display');
+	};
 })
 .controller('BrowseController', function($scope, $firebaseArray) {
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
@@ -183,12 +191,11 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
 	var departments = ref.child('departments');
-	$scope.classTitle = $stateParams.class.classTitle + $stateParams.class.courseNumber;
+	$scope.classTitle = $stateParams.class.classTitle;
 	$scope.classDescription = $stateParams.class.description;
 
 
-	console.log($stateParams.class);
-	console.log($stateParams.department);
+	console.log($scope.classTitle);
 
 	$(function() {
  		$('.bar').barrating({
