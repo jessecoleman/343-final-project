@@ -27,7 +27,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		url: '/browse/review',
 		templateUrl: 'templates/review.html',
 		controller: 'ReviewClassController',
-		params: {'class': null}
+		params: {'class': null, 'department': null}
 	});
 })
 .controller('MainController', function($scope, $state, $firebaseAuth, $firebaseObject) {
@@ -37,10 +37,8 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	var authData = authObj.$getAuth();
 
 	$scope.users = $firebaseObject(usersRef);
-
-	if($state.is('')) {
-		state.go('home');
-	}
+	//console.log($scope.users[authData.uid].email);
+	$state.go('home');
 
 	$scope.user = {};
 
@@ -74,6 +72,8 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 
 	// LogIn
 	$scope.logIn = function(userEmail, userPassword) {
+		//$scope.user.id = authData.uid;
+		$scope.user.email = userEmail;
 		return $scope.authObj.$authWithPassword({
 			email: userEmail,
 			password: userPassword
@@ -97,6 +97,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 			};
 			//save firebase array
 			$scope.users.$save();
+
 			$state.go('home');
 		}).catch(function (error) {
 			//display error message
@@ -114,7 +115,8 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	$scope.signIn = function() {
 		$scope.logIn($scope.email, $scope.password)
 		.then(function(authData) {
-			$scope.user.id = authData.uid;
+
+			//console.log($scope.users[authData.uid].email);
 			$state.go('home');
 		}).catch(function(error) {
 			$scope.error = error;
@@ -150,17 +152,26 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	$scope.submitClass = function() {
 		$scope.classes.$add({
 			'classTitle': $scope.classTitle,
-			'courseNumber': $scope.courseNumber
+			'courseNumber': $scope.courseNumber,
+			'description': $scope.description
 		});
 		$scope.classes.$save();
 		$state.go('browse');
 	}
 })
 .controller('ReviewClassController', function($scope, $state, $stateParams) {
-	// console.log($stateParams.class);
-  $(function() {
-     $('.bar').barrating({
-       theme: 'bars-movie'
-     });
-  });
+	var ref = new Firebase("https://welp-uw.firebaseio.com");
+	var departments = ref.child('departments');
+	$scope.classTitle = $stateParams.class.classTitle + $stateParams.class.courseNumber;
+	$scope.classDescription = $stateParams.class.description;
+
+
+	console.log($stateParams.class);
+	console.log($stateParams.department);
+
+	$(function() {
+ 		$('.bar').barrating({
+   			theme: 'bars-movie'
+ 		});
+  	});
 });

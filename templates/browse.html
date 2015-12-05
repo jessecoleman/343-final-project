@@ -1,16 +1,17 @@
 <div class="wrapper">
-      <div>
-          <h3>Departments</h3>
-          <ul>
-              <li ng-repeat="department in departments">
-                  <span>{{department.title}}</span>
-                  <a ui-sref="createClass({'department': department})" id="add">+</a>
-                  <br>
-                  <ul>
-                      <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'class': class})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
-
-                  </ul>
-              </li>
-          </ul>
-      </div>
+    <div>
+        <div>
+            <h3>Departments</h3>
+            <ul>
+                <li ng-repeat="department in departments">
+                    <span>{{department.title}}</span>
+                    <a ui-sref="createClass({'department': department})" id="add">+</a>
+                    <br>
+                    <ul>
+                        <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'class': class})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
