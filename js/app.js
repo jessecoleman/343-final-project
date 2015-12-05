@@ -22,9 +22,10 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
 	var usersRef = ref.child('users');
 	var authObj = $firebaseAuth(ref);
+	var authData = authObj.$getAuth();
 
 	$scope.users = $firebaseObject(usersRef);
-	console.log(authObj.$getAuth());
+	$scope.user = $scope.users[authData.uid];
 
 	if($state.is('')) {
 		state.go('home');
@@ -83,6 +84,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 			//display error message
 			$scope.error = error;
 		  	//clear user data from scope
+			console.log('error');
 			$scope.user = {
 				id: "",
 				email: ""
