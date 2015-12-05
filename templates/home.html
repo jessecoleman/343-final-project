@@ -21,6 +21,8 @@
               <p class="grid-item xs-11/12">
                 <input type="text" class= "form-input" name="search" placeholder="For example – CHEM 142" ng-model="search" >
               </p>
+             <!--  search button not really needed?  
+             can't search for class title + class number at the same time because they are not stored as one title -->
               <p class="grid-item xs-1/12">
                 <button id="submit" type="submit" class="btn btn-primary">Search</button>
               </p>
@@ -31,19 +33,28 @@
       </form>
       <ul>
           <li ng-repeat="department in departments | filter: search" ng-show="search">
+             <span class="pointer">{{department.title}}</span>
+              <a ui-sref="createClass({'department': department})" id="add">+</a>
+              <br>
+              <ul>
+                  <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'class': class})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
+              </ul>
+          </li>
+      </ul>
+      <!-- <ul>
+        <li ng-repeat="department in departments | filter:{department.classes: search}" ng-show="search">
 
-             <span ng-click="clicked ? clicked = false : clicked = true" class="pointer"> <i class="fa fa-caret-right" ng-show="!clicked && department.classes"></i><i class="fa fa-caret-down" ng-show="clicked && department.classes"></i> {{department.title}}</span>
+             <span> {{department.title}}</span>
 
               <a ui-sref="createClass({'department': department})" id="add">+</a>
 
               <br>
 
-              <ul ng-show="clicked">
+              <ul>
                   <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'class': class})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
               </ul>
-
           </li>
-      </ul>
+      </ul> -->
 
 <!-- 
       <div class="category" ng-repeat="department in departments | filter: search" ng-show="search">
