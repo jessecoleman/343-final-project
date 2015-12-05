@@ -1,48 +1,13 @@
-<div>
+<div class="container">
     <div class="row">
-
-        <div class="col-sm-12 col-md-6 col-lg-5">
-            <h2>Department</h2>
-            <ul>
-                <li><a href="#">American Ethnic Studies</a></li>
-                <li><a href="#">Anthropology</a></li>
-                <li><a href="#">Applied Computational Math Sciences</a></li>
-                <li><a href="#">Art History</a></li>
-                <li><a href="#">Astronomy</a></li>
-                <li><a href="#">Biochemistry</a></li>
-            </ul>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-5">
-            <h2>General Ed Requirements</h2>
-            <ul>
-                <li><a href="#">Natural World</a></li>
-                <li><a href="#">Visual Literary Performing Arts</a></li>
-                <li><a href="#">Writing</a></li>
-                <li><a href="#">Individuals and Societies</a></li>
-                <li><a href="#">Diversity</a></li>
-
-            </ul>
-        </div>
-        <div class="col-sm-12 col-lg-2">
-            <h2>Popular Classes</h2>
-            <ul>
-                <li><a href="#">Info 343</a></li>
-                <li><a href="#">Psych 210</a></li>
-                <li><a href="#">Math 124</a></li>
-                <li><a href="#">Econ 200</a></li>
-            </ul>
-            <h2>Fun Classes</h2>
-            <ul>
-                <li><a href="#">CSE 143</a></li>
-                <li><a href="#">Design 300</a></li>
-                <li><a href="#">Astro 150</a></li>
-                <li><a href="#">Math 111</a></li>
-
         <div>
-            <h3>Departments</h3>
+            <h3>Department</h3>
             <ul>
-                <li ng-repeat="department in departments"><a href="#">{{department.title}}</a></li>
-
+                <li ng-repeat="department in departments">
+                    <span>{{department.title}}</span>
+                    <br>
+                    <a ui-sref="createClass({'department': department.title})">Add another class</a>
+                </li>
             </ul>
         </div>
     </div>
