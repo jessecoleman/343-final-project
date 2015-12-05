@@ -16,7 +16,13 @@ var app = angular.module('app', ['firebase', 'ui.router'])
         url: '/login',
         templateUrl: 'templates/login.html',
         controller: 'LoginController'
-    });
+    })
+	.state('createClass', {
+		url: '/browse/create-class',
+		templateUrl: 'templates/create-class.html',
+		controller: 'CreateClassController',
+		params: {'department': null}
+	});
 })
 .controller('MainController', function($scope, $state, $firebaseAuth, $firebaseObject) {
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
@@ -120,5 +126,21 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	//if directed to from logged in user
 	if(authData) {
 		$scope.logOut();
+	}
+})
+.controller('CreateClassController', function($scope, $state, $stateParams, $firebaseArray) {
+	var ref = new Firebase("https://welp-uw.firebaseio.com");
+	var classesRef = ref.child('departments').child('classes');
+	$scope.classes = $firebaseArray(classesRef);
+
+	$scope.department = $stateParams.department;
+
+	$scope.submitClass = function() {
+		$scope.classes.$add({
+			'classTitle': $scope.classTitle,
+			'courseNumber': $scope.courseNumber
+		});
+		$scope.classes.$save();
+		$state.go('browse');
 	}
 });
