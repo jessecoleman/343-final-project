@@ -25,7 +25,6 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	var authData = authObj.$getAuth();
 
 	$scope.users = $firebaseObject(usersRef);
-	$scope.user = $scope.users[authData.uid];
 
 	if($state.is('')) {
 		state.go('home');
@@ -37,8 +36,11 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 .controller('HomeController', function($scope, $state) {
 	console.log($scope.user);
 })
-.controller('BrowseController', function($scope) {
-
+.controller('BrowseController', function($scope, $firebaseArray) {
+	var ref = new Firebase("https://welp-uw.firebaseio.com");
+	var departmentsRef = ref.child('departments');
+	$scope.departments = $firebaseArray(departmentsRef);
+	console.log($scope.departments);
 })
 .controller('LoginController', function($scope, $state, $firebaseAuth, $firebaseObject, $firebaseArray) {
   // display sign in first
