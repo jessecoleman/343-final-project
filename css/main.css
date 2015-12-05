@@ -1,16 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900);
 
-/*for mockup use*/
-img {
-  display: block;
-  width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
+  font-size: 12px;
 }
 
 div h1 {
@@ -31,6 +24,12 @@ form input {
 	border-radius: 5px;
 	padding: 5px;
 	width: 500px;
+}
+
+.bar-group {
+  margin: 0.5em;
+
+  margin-bottom: 2.2em;
 }
 
 #login {
