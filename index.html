@@ -30,11 +30,11 @@
 			<ul>
 				<li><a ui-sref="home">search</a></li>
 				<li><a ui-sref="browse">browse</a></li>
-				<li><a ng-bind="user.email"></a></li>
 			</ul>
 
 			<ul class="tr">
-				<li><a ui-sref="login">login</a></li>
+				<li><a ui-sref="login">{{user.email ? 'logout' : 'login'}}</a></li>
+				<li>{{user.email}}</li>
 			</ul>
 		</nav>
 
