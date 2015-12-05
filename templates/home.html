@@ -1,13 +1,14 @@
 <div class="wrapper">
-      <img id="logo" src="assets/Welp_logo.svg" />
-      <form role="form">
-          <div class="form-group">
-              <input type="text" name="search" placeholder="INFO 200" >
-              <button id="submit" type="submit">Search</button>
-          </div>
-      </form>
-
-      <div class="category" ng-repeat="category in categories">
-          <a href="templates/review.html"><h3>{{category}}</h3></a>
-      </div>
+  <img id="logo" src="assets/Welp_logo.svg" />
+  <thead>
+      <tr>Search Results for: {{search}}</tr>
+  </thead>
+  <tbody>
+      <tr ng-repeat="department in departments | filter:search">
+          <td>{{department.title}}</td>
+      </tr>
+      <tr ng-repeat="class in department.classes">
+          <td>{{class.title}}</td>
+      </tr>
+  </tbody>
 </div>

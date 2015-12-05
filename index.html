@@ -30,14 +30,22 @@
 			<ul>
 				<li><a ui-sref="home">Welp</a></li>
 				<li><a ui-sref="browse">Browse</a></li>
-				<li><a ui-sref="results">Discover</a></li>
 				<li><a ui-sref="login">Login</a></li>
 				<li><a ng-bind="user.email"></a></li>
+				<li>
+					<form role="form">
+					    <div class="form-group">
+					        <input type="text" name="search" placeholder="Enter search..." >
+					        <button id="submit" type="submit" ng-model="search">Search</button>
+					    </div>
+					</form>
+				</li>
 			</ul>
 		</nav>
 
 		<!-- ui-view loads html fragments from templates directory -->
-		<div ui-view class="wrapper wrapper-full-bleed" id="content"></div>
+		<div ui-view class="wrapper wrapper-full-bleed" id="content">
+		</div>
 
 	</body>
 

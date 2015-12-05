@@ -3,7 +3,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 //configure pages
 .config(function($stateProvider) {
     $stateProvider.state('home', {
-        url: '/',
+        url: '',
         templateUrl: 'templates/home.html',
         controller: 'HomeController'
     })
@@ -153,9 +153,13 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 })
 .controller('ReviewClassController', function($scope, $state, $stateParams) {
 	// console.log($stateParams.class);
-  $(function() {
-     $('.bar').barrating({
-       theme: 'bars-movie'
-     });
-  });
+  	$(function() {
+    	$('.bar').barrating({
+       		theme: 'bars-movie'
+     	});
+
+     	$('#test').barrating({
+     		readonly: true,
+     	})
+  	});
 });
