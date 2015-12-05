@@ -13,14 +13,17 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
 		<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
 
+		<!-- FA -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 		<!-- Custom files -->
 		<script type="text/javascript" src="js/app.js"></script>
 		<link rel="stylesheet" href="css/cardinal.min.css" />
 		<link rel="stylesheet" href="css/main.css" />
 
 		<!-- bar rating -->
-		<link rel="stylesheet" href="/bower_components/jquery-bar-rating/dist/themes/bars-movie.css">
-		<script src="/bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+		<link rel="stylesheet" href="bower_components/jquery-bar-rating/dist/themes/bars-movie.css">
+		<script src="bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
 
 	</head>
 
@@ -28,18 +31,14 @@
 
 		<nav class="z10">
 			<ul>
-				<li><a ui-sref="home">Welp</a></li>
-				<li><a ui-sref="browse">Browse</a></li>
-				<li><a ui-sref="login">Login</a></li>
-				<li><a ng-bind="user.email"></a></li>
-				<li>
-					<form role="form">
-					    <div class="form-group">
-					        <input type="text" name="search" placeholder="Enter search..." >
-					        <button id="submit" type="submit" ng-model="search">Search</button>
-					    </div>
-					</form>
-				</li>
+				
+				<li><a ui-sref="home">search</a></li>
+				<li><a ui-sref="browse">browse</a></li>
+			</ul>
+
+			<ul class="tr">
+				<li><a ui-sref="login">{{user.email ? 'logout' : 'login'}}</a></li>
+				<li>{{user.email}}</li>
 			</ul>
 		</nav>
 
