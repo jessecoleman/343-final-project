@@ -46,7 +46,6 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
 	var departmentsRef = ref.child('departments');
 	$scope.departments = $firebaseArray(departmentsRef);
-	console.log($scope.departments);
 })
 .controller('LoginController', function($scope, $state, $firebaseAuth, $firebaseObject, $firebaseArray) {
   // display sign in first
@@ -128,12 +127,14 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		$scope.logOut();
 	}
 })
-.controller('CreateClassController', function($scope, $state, $stateParams, $firebaseArray) {
+.controller('CreateClassController', function($scope, $state, $stateParams, $firebaseArray, $firebaseObject) {
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
-	var classesRef = ref.child('departments').child('classes');
-	$scope.classes = $firebaseArray(classesRef);
+	var departments = ref.child('departments');
+	var department = departments.child($stateParams.department.$id);
+	$scope.departmentTitle = $stateParams.department.title;
+	var classes = department.child('classes');
+	$scope.classes = $firebaseArray(classes);
 
-	$scope.department = $stateParams.department;
 
 	$scope.submitClass = function() {
 		$scope.classes.$add({

@@ -6,7 +6,10 @@
                 <li ng-repeat="department in departments">
                     <span>{{department.title}}</span>
                     <br>
-                    <a ui-sref="createClass({'department': department.title})">Add another class</a>
+                    <ul>
+                        <li ng-repeat="class in department.classes">{{class.classTitle + ' ' + class.courseNumber}}</li>
+                        <li><a ui-sref="createClass({'department': department})">Add another class</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
