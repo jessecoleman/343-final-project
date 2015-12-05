@@ -18,18 +18,23 @@ var app = angular.module('app', ['firebase', 'ui.router'])
         controller: 'LoginController'
     });
 })
-.controller('MainController', function($scope, $state) {
+.controller('MainController', function($scope, $state, $firebaseAuth, $firebaseObject) {
+	var ref = new Firebase("https://welp-uw.firebaseio.com");
+	var usersRef = ref.child('users');
+	var authObj = $firebaseAuth(ref);
+
+	$scope.users = $firebaseObject(usersRef);
+	console.log(authObj.$getAuth());
+
 	if($state.is('')) {
 		state.go('home');
 	}
 
-	$scope.user = {
-		id : "",
-		email: ""
-	}
+	$scope.user = {};
+
 })
 .controller('HomeController', function($scope, $state) {
-
+	console.log($scope.user);
 })
 .controller('BrowseController', function($scope) {
 
@@ -65,24 +70,23 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 			password: $scope.newPassword
 		}).then($scope.logIn($scope.newEmail, $scope.newPassword))
 		.then(function (authData) {
-			$scope.user = {
-				id: authData.uid,
-				email: $scope.newEmail
-		  	}
 			// add user to users firebase array
 			$scope.users[authData.uid] = {
 				//set user data
+				id: authData.uid,
 				email: $scope.newEmail
 			};
 			//save firebase array
 			$scope.users.$save();
 			$state.go('home');
 		}).catch(function (error) {
+			//display error message
 			$scope.error = error;
-      $scope.user = {
-        id: "",
-        email: ""
-      }
+		  	//clear user data from scope
+			$scope.user = {
+				id: "",
+				email: ""
+		  	}
 		});
 	};
 
@@ -94,6 +98,10 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 			$state.go('home');
 		}).catch(function(error) {
 			$scope.error = error;
+			$scope.user = {
+				id: "",
+				email: ""
+			}
 		});
 	};
 
