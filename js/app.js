@@ -68,6 +68,10 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	// test if user is already logged in
 	var authData = $scope.authObj.$getAuth();
 
+	if(authData) {
+		$scope.userId = authData.uid; 
+	}
+
 	// LogIn
 	$scope.logIn = function(userEmail, userPassword) {
 		return $scope.authObj.$authWithPassword({
@@ -85,6 +89,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		}).then($scope.logIn($scope.newEmail, $scope.newPassword))
 		.then(function (authData) {
 			// add user to users firebase array
+			$scope.userId = authData.uid 
 			$scope.users[authData.uid] = {
 				//set user data
 				id: authData.uid,
