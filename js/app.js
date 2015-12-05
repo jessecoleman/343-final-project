@@ -152,5 +152,10 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	}
 })
 .controller('ReviewClassController', function($scope, $state, $stateParams) {
-	console.log($stateParams.class);
+	// console.log($stateParams.class);
+  $(function() {
+     $('.bar').barrating({
+       theme: 'bars-movie'
+     });
+  });
 });
