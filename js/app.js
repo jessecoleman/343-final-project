@@ -37,7 +37,11 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	var authData = authObj.$getAuth();
 
 	$scope.users = $firebaseObject(usersRef);
+
 	//console.log($scope.users[authData.uid].email);
+
+
+
 	$state.go('home');
 
 	$scope.user = {};
