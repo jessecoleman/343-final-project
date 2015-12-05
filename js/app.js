@@ -47,8 +47,11 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	$scope.user = {};
 
 })
-.controller('HomeController', function($scope, $state) {
+.controller('HomeController', function($scope, $state, $firebaseArray) {
 	console.log($scope.user);
+	var ref = new Firebase("https://welp-uw.firebaseio.com");
+	var departmentsRef = ref.child('departments');
+	$scope.departments = $firebaseArray(departmentsRef);
 })
 .controller('BrowseController', function($scope, $firebaseArray) {
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
