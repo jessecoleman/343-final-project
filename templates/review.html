@@ -24,6 +24,7 @@
 	<h1>{{className}}</h1>
 	<p class="class-des">{{classDes}}</p>
 
+	<h2>Overview</h2>
 	<!-- bars -->
 	<div class="br-wrapper br-theme-bars-movie">
 		<div class="bar-group">
@@ -64,6 +65,7 @@
 
 	<hr>
 
+	<h2>Reviews</h2>
 	<!-- submit review -->
 	<!-- hide if not logged in -->
 	<div id="submit-review" class="wrapper">
@@ -105,30 +107,32 @@
 			  </select>
 			</div>
 
-		<!-- review guidelines -->
-		<div id="review-guidelines" class="grid-item xs-1/2">
-			<div class="box">
-				<p>Some things to think about while writing your review:</p>
-				<ul>
-					<li>Workload - how much work did you do? How many hours do you spend a week? Is it fair?</li>
-					<li>Difficulty - was the content of the class hard? How much of the class did you understand?</li>
-					<li>Grading and Leniency - was the grading fair? How did the curve work?</li>
-					<li>Tips - how to do well in this class? Does participation matter? Is the textbook useful?</li>
-				</ul>
+		<div class="grid">
+			<!-- review guidelines -->
+			<div id="review-guidelines" class="grid-item 6/12">
+				<div class="box">
+					<p>Some things to think about while writing your review:</p>
+					<ul>
+						<li>Workload - how much work did you do? How many hours do you spend a week? Is it fair?</li>
+						<li>Difficulty - was the content of the class hard? How much of the class did you understand?</li>
+						<li>Grading and Leniency - was the grading fair? How did the curve work?</li>
+						<li>Tips - how to do well in this class? Does participation matter? Is the textbook useful?</li>
+					</ul>
+				</div>
 			</div>
-		</div>
 
-		<!-- forms -->
-		<div id="review-form" class="grid-item xs-1/2">
-			<form>
-				<fieldset>
-        <input type="text" id="prof" class="form-input" placeholder="Instructor">
-
-				<textarea class="form-textarea" rows="8" cols="82" placeholder="Enter your message here"></textarea>
-
-				<input id="button" type="submit" class="btn btn-primary" value="Save">
-      </form>
-		</fieldset>
+			<!-- forms -->
+			<div id="review-form" class="grid-item 6/12">
+				<form>
+					<fieldset>
+	        <input type="text" id="prof" class="form-input" placeholder="Instructor">
+				</br>
+					<textarea class="form-textarea" rows="8" cols="82" placeholder="Enter your message here"></textarea>
+				</br>
+					<input id="button" type="submit" class="btn btn-primary" value="Save">
+	      </form>
+			</fieldset>
+			</div>
 		</div>
 
 		</div>

@@ -13,7 +13,7 @@ div h1 {
 	text-align: center;
 }
 
-form button {
+/*form button {
 	border: solid 1px gray;
 	border-radius: 5px;
 	padding: 5px;
@@ -24,7 +24,7 @@ form input {
 	border-radius: 5px;
 	padding: 5px;
 	width: 500px;
-}
+}*/
 
 .bar-group {
   margin: 0.5em;
@@ -60,11 +60,6 @@ form input {
 	text-align: center;
 	width: 600px;
 }
-
-/*#submit {
-	background-color: #330A6D;
-	color: white;
-}*/
 
 #top {
 	text-align: center;
