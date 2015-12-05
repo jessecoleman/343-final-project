@@ -31,8 +31,8 @@
 				<li><a ui-sref="home">Welp</a></li>
 				<li><a ui-sref="browse">Browse</a></li>
 				<li><a ui-sref="results">Discover</a></li>
-				<li><a ui-sref="login">Login</a></li>
-				<li>{{user.email}}</li>
+				<li><a ui-sref="login">{{user.email ? 'Logout' : 'Login'}}</a></li>
+				<li><a>{{user.email}}</a></li>
 			</ul>
 		</nav>
 
