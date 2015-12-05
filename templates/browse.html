@@ -1,5 +1,6 @@
 <div>
     <div class="row">
+
         <div class="col-sm-12 col-md-6 col-lg-5">
             <h2>Department</h2>
             <ul>
@@ -36,6 +37,12 @@
                 <li><a href="#">Design 300</a></li>
                 <li><a href="#">Astro 150</a></li>
                 <li><a href="#">Math 111</a></li>
+
+        <div>
+            <h3>Departments</h3>
+            <ul>
+                <li ng-repeat="department in departments"><a href="#">{{department.title}}</a></li>
+
             </ul>
         </div>
     </div>

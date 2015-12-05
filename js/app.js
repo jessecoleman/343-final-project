@@ -22,9 +22,9 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
 	var usersRef = ref.child('users');
 	var authObj = $firebaseAuth(ref);
+	var authData = authObj.$getAuth();
 
 	$scope.users = $firebaseObject(usersRef);
-	console.log(authObj.$getAuth());
 
 	if($state.is('')) {
 		state.go('home');
@@ -36,8 +36,11 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 .controller('HomeController', function($scope, $state) {
 	console.log($scope.user);
 })
-.controller('BrowseController', function($scope) {
-
+.controller('BrowseController', function($scope, $firebaseArray) {
+	var ref = new Firebase("https://welp-uw.firebaseio.com");
+	var departmentsRef = ref.child('departments');
+	$scope.departments = $firebaseArray(departmentsRef);
+	console.log($scope.departments);
 })
 .controller('LoginController', function($scope, $state, $firebaseAuth, $firebaseObject, $firebaseArray) {
   // display sign in first
@@ -83,6 +86,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 			//display error message
 			$scope.error = error;
 		  	//clear user data from scope
+			console.log('error');
 			$scope.user = {
 				id: "",
 				email: ""
