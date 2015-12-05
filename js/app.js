@@ -7,25 +7,29 @@ var app = angular.module('app', ['firebase', 'ui.router'])
         templateUrl: 'templates/home.html',
         controller: 'HomeController'
     })
-    .state('home.browse', {
+    .state('browse', {
         url: '/browse',
         templateUrl: 'templates/browse.html',
         controller: 'BrowseController'
     })
-    .state('home.login', {
+    .state('login', {
         url: '/login',
         templateUrl: 'templates/login.html',
         controller: 'LoginController'
     });
 })
+.controller('MainController', function($scope, $state) {
+	if($state.is('')) {
+		state.go('home');
+	}
+
+	$scope.user = {
+		id : "",
+		email: ""
+	}
+})
 .controller('HomeController', function($scope, $state) {
-    if($state.is('')) {
-      state.go('home');
-    }
-    $scope.user = {
-      id : "",
-      email: ""
-    }
+
 })
 .controller('BrowseController', function($scope) {
 
@@ -62,9 +66,9 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		}).then($scope.logIn($scope.newEmail, $scope.newPassword))
 		.then(function (authData) {
 			$scope.user = {
-        id: authData.uid,
-        email: $scope.newEmail
-      }
+				id: authData.uid,
+				email: $scope.newEmail
+		  	}
 			// add user to users firebase array
 			$scope.users[authData.uid] = {
 				//set user data
@@ -72,7 +76,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 			};
 			//save firebase array
 			$scope.users.$save();
-			$state.go('^');
+			$state.go('home');
 		}).catch(function (error) {
 			$scope.error = error;
       $scope.user = {
@@ -87,7 +91,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		$scope.logIn($scope.email, $scope.password)
 		.then(function(authData) {
 			$scope.user.id = authData.uid;
-			$state.go('^');
+			$state.go('home');
 		}).catch(function(error) {
 			$scope.error = error;
 		});
