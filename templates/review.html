@@ -1,131 +1,135 @@
-<h1>{{classTitle}}</h1>
-<p class="class-des">{{classDescription}}</p>
+<div class="wrapper">
+	<h1>{{classTitle}}</h1>
+	<p class="class-des">{{classDescription}}</p>
 
-<h2>Overview</h2>
-<!-- bars -->
-<div class="br-wrapper br-theme-bars-movie">
-	<div class="bar-group">
-		<!-- workload -->
-		<h3>Workload</h3>
-	  <select class="bar">
-			<option value=""></option>
-		<option value="Little">Little</option>
-		<option value="Fair">Fair</option>
-		<option value="A lot">A lot</option>
-		<option value="Torture">Torture</option>
-	  </select>
-	</div>
-
-	<!-- difficulty -->
-	<h3>Difficulty</h3>
-	<div class="bar-group">
-		<select class="bar">
-			<option value=""></option>
-		<option value="Easy">Easy</option>
-		<option value="Manageable">Manageable</option>
-		<option value="Difficult">Difficult</option>
-		<option value="Rocket Science">Rocket Science</option>
-	  </select>
-	</div>
-
-	<!-- grading -->
-	<h3>Grading and Leniency</h3>
-	<div class="bar-group">
-		<select class="bar">
-			<option value=""></option>
-		<option value="GPA Booster">GPA Booster</option>
-		<option value="Fair">Fair</option>
-		<option value="Hard">Hard</option>
-		<option value="Sadistic Curve">Sadistic Curve</option>
-	  </select>
-	</div>
-
-<hr>
-
-<h2>Reviews</h2>
-<!-- submit review -->
-<!-- hide if not logged in -->
-<div id="submit-review" class="wrapper">
+	<h2>Overview</h2>
 	<!-- bars -->
+
 	<div class="br-wrapper br-theme-bars-movie">
 		<div class="bar-group">
 			<!-- workload -->
 			<h3>Workload</h3>
-			<select class="bar">
+		 	<select class="bar">
 				<option value=""></option>
-				<option value="Little">Little</option>
-				<option value="Fair">Fair</option>
-				<option value="A lot">A lot</option>
-				<option value="Torture">Torture</option>
-			</select>
+			    <option value="1">Little</option>
+			    <option value="2">Fair</option>
+			    <option value="3">A lot</option>
+			    <option value="4">Torture</option>
+		  	</select>
 		</div>
 
+		<!-- difficulty -->
+		<h3>Difficulty</h3>
 		<div class="bar-group">
-			<!-- difficulty -->
-			<h3>Difficulty</h3>
 			<select class="bar">
 				<option value=""></option>
-				<option value="Easy">Easy</option>
-				<option value="Manageable">Manageable</option>
-				<option value="Difficult">Difficult</option>
-				<option value="Rocket Science">Rocket Science</option>
-			</select>
+			    <option value="1">Easy</option>
+			    <option value="2">Manageable</option>
+			    <option value="3">Difficult</option>
+			    <option value="4">Rocket Science</option>
+		  	</select>
 		</div>
 
+		<!-- grading -->
+		<h3>Grading and Leniency</h3>
 		<div class="bar-group">
-			<!-- grading -->
-			<h3>Grading and Leniency</h3>
 			<select class="bar">
 				<option value=""></option>
-			<option value="GPA Booster">GPA Booster</option>
-			<option value="Fair">Fair</option>
-			<option value="Hard">Hard</option>
-			<option value="Sadistic Curve">Sadistic Curve</option>
+			    <option value="1">GPA Booster</option>
+			    <option value="2">Fair</option>
+			    <option value="3">Hard</option>
+			    <option value="4">Sadistic Curve</option>
 		  </select>
 		</div>
 
-		<div class="grid">
-			<!-- review guidelines -->
-			<div id="review-guidelines" class="grid-item 6/12">
-				<div class="box">
-					<p>Some things to think about while writing your review:</p>
-					<ul>
-						<li>Workload - how much work did you do? How many hours do you spend a week? Is it fair?</li>
-						<li>Difficulty - was the content of the class hard? How much of the class did you understand?</li>
-						<li>Grading and Leniency - was the grading fair? How did the curve work?</li>
-						<li>Tips - how to do well in this class? Does participation matter? Is the textbook useful?</li>
-					</ul>
+	<hr>
+
+	<h2>Reviews</h2>
+	<!-- submit review -->
+	<!-- hide if not logged in -->
+	<div id="submit-review" class="wrapper">
+		<!-- bars -->
+		<div class="br-wrapper br-theme-bars-movie">
+			<div class="bar-group">
+				<!-- workload -->
+				<h3>Workload</h3>
+
+			  	<select class="review" ng-model="workload">
+					<option value=""></option>
+				    <option value="1">Little</option>
+				    <option value="2">Fair</option>
+				    <option value="3">A lot</option>
+				    <option value="4">Torture</option>
+			  	</select>
+			</div>
+
+			<!-- difficulty -->
+			<div class="bar-group">
+				<h3>Difficulty</h3>
+				<select class="bar">
+					<option value=""></option>
+					<option value="1">Easy</option>
+					<option value="2">Manageable</option>
+					<option value="3">Difficult</option>
+					<option value="4">Rocket Science</option>
+
+			  	</select>
+			</div>
+
+			<div class="bar-group">
+				<h3>Grading and Leniency</h3>
+				<select class="bar">
+					<option value=""></option>
+				    <option value="1">GPA Booster</option>
+				    <option value="2">Fair</option>
+				    <option value="3">Hard</option>
+				    <option value="4">Sadistic Curve</option>
+			  </select>
+			</div>
+
+			<div class="grid">
+				<!-- review guidelines -->
+				<div id="review-guidelines" class="grid-item 6/12">
+					<div class="box">
+						<p>Some things to think about while writing your review:</p>
+						<ul>
+							<li>Workload - how much work did you do? How many hours do you spend a week? Is it fair?</li>
+							<li>Difficulty - was the content of the class hard? How much of the class did you understand?</li>
+							<li>Grading and Leniency - was the grading fair? How did the curve work?</li>
+							<li>Tips - how to do well in this class? Does participation matter? Is the textbook useful?</li>
+						</ul>
+					</div>
 				</div>
+			</div>
+
+			<!-- forms -->
+			<div id="review-form" class="grid-item 6/12">
+				<form>
+					<fieldset>
+	        <input type="text" id="prof" class="form-input" placeholder="Instructor">
+				</br>
+					<textarea class="form-textarea" rows="8" cols="82" placeholder="Enter your message here"></textarea>
+				</br>
+					<input id="button" type="submit" class="btn btn-primary" value="Save" ng-click="saveReview()">
+					</fieldset>
+	      		</form>
 			</div>
 		</div>
 
-		<!-- forms -->
-		<div id="review-form" class="grid-item 6/12">
-			<form>
-				<fieldset>
-		<input type="text" id="prof" class="form-input" placeholder="Instructor">
-			</br>
-				<textarea class="form-textarea" rows="8" cols="82" placeholder="Enter your message here"></textarea>
-			</br>
-				<input id="button" type="submit" class="btn btn-primary" value="Save">
-				</fieldset>
-			</form>
 		</div>
 	</div>
 
+	<!-- tips + comments -->
+	<div id="tips" class="wrapper">
+		<!-- loop and get data from firebase -->
+		<!-- below is example for layout -->
+
+		<h4>username</h4>
+		<h4>instructor</h4>
+
+		<p class="comment">
+			lalala
+		</p>
+
 	</div>
-</div>
-
-<!-- tips + comments -->
-<div id="tips" class="wrapper">
-	<!-- loop and get data from firebase -->
-	<!-- below is example for layout -->
-
-	<h4>username</h4>
-	<h4>instructor</h4>
-
-	<p class="comment">
-		this class sucks prof sucks omg
-	</p>
-
 </div>
