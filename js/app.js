@@ -38,19 +38,22 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 
 	// if user is logged in
 	$scope.authObj.$onAuth(function(authData) {
-		console.log($scope.users);
-		console.log($scope.users[authData.uid]);
-		$scope.user = $scope.users[authData.uid];
-		console.log('auth change');
-		console.log(authData);
-		console.log($scope.user);
+		if(authData) {
+			$scope.users.$loaded(function () {
+				$scope.user = $scope.users[authData.uid];
+				console.log('auth change');
+				console.log(authData);
+				console.log($scope.user);
+			});
+		} else {
+			$scope.user = {};
+		}
 	});
 
 	$state.go('home');
 
 })
 .controller('HomeController', function($scope, $state, $firebaseArray) {
-	console.log($scope.user);
 	$scope.clicked = false;
 })
 .controller('BrowseController', function($scope, $firebaseArray) {
@@ -104,12 +107,6 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		}).catch(function (error) {
 			//display error message
 			$scope.error = error;
-		  	//clear user data from scope
-			console.log('error');
-			$scope.user = {
-				id: '',
-				email: ''
-		  	}
 		});
 	};
 
@@ -119,11 +116,8 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		.then(function() {
 			$state.go('home');
 		}).catch(function(error) {
+			//display error message
 			$scope.error = error;
-			$scope.user = {
-				id: "",
-				email: ""
-			}
 		});
 	};
 })
