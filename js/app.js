@@ -47,16 +47,12 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	$scope.user = {};
 
 })
-.controller('HomeController', function($scope, $state, $filter, $firebaseArray) {
+.controller('HomeController', function($scope, $state, $firebaseArray) {
+	console.log($scope.user);
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
 	var departmentsRef = ref.child('departments');
 	$scope.departments = $firebaseArray(departmentsRef);
-
-	$scope.showResults = false;
-	$scope.searchClasses = function() {
-		$scope.showResults = true;
-		console.log('display');
-	};
+	$scope.clicked = false; 
 })
 .controller('BrowseController', function($scope, $firebaseArray) {
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
@@ -195,7 +191,8 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	$scope.classDescription = $stateParams.class.description;
 
 
-	console.log($scope.classTitle);
+	console.log($stateParams.class);
+	console.log($stateParams.department);
 
 	$(function() {
  		$('.bar').barrating({

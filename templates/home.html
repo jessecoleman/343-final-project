@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="wrapper">
   <thead>
       <tr>Search Results for: {{search}}</tr>
@@ -10,7 +10,7 @@
       <tr ng-repeat="class in department.classes">
           <td>{{class.title}}</td>
       </tr>
-  </tbody>
+  </tbody> -->
 
 <div class="wrapper tc">
       <h1 id="logo">welp</h1>
@@ -19,8 +19,10 @@
           <div class="form-group grid">
             <fieldset>
               <p class="grid-item xs-11/12">
-                <input type="text" class= "form-input" name="search" placeholder="For example – CHEM 142" >
+                <input type="text" class= "form-input" name="search" placeholder="For example – CHEM 142" ng-model="search" >
               </p>
+             <!--  search button not really needed?  
+             can't search for class title + class number at the same time because they are not stored as one title -->
               <p class="grid-item xs-1/12">
                 <button id="submit" type="submit" class="btn btn-primary">Search</button>
               </p>
@@ -29,9 +31,37 @@
 
           </div>
       </form>
+      <ul>
+          <li ng-repeat="department in departments | filter: search" ng-show="search">
+             <span class="pointer">{{department.title}}</span>
+              <a ui-sref="createClass({'department': department})" id="add">+</a>
+              <br>
+              <ul>
+                  <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'class': class})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
+              </ul>
+          </li>
+      </ul>
+      <!-- <ul>
+        <li ng-repeat="department in departments | filter:{department.classes: search}" ng-show="search">
 
-      <div class="category" ng-repeat="category in categories">
-          <a href="templates/review.html"><h3>{{category}}</h3></a>
+             <span> {{department.title}}</span>
+
+              <a ui-sref="createClass({'department': department})" id="add">+</a>
+
+              <br>
+
+              <ul>
+                  <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'class': class})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
+              </ul>
+          </li>
+      </ul> -->
+
+<!-- 
+      <div class="category" ng-repeat="department in departments | filter: search" ng-show="search">
+          <a href="templates/review.html"><h3>{{department.title}}</h3></a>
       </div>
+      <div class="category" ng-repeat="class in department.classes">
+          <a href="templates/review.html"><h3>{{class.classTitle}}</h3></a>
+      </div> -->
 
 </div>

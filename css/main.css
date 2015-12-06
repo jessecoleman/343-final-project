@@ -6,10 +6,6 @@ body {
   font-size: 12px;
   line-height: 1.4;
 
-<<<<<<< HEAD
-  /*height: 100%;*/
-=======
->>>>>>> 1b705ead86617a6c5a10b0f4fad1087c0dc47d1b
   margin: 0;
   color: #323232;
 
@@ -56,12 +52,6 @@ body {
 }
 
 #content {
-<<<<<<< HEAD
-
-  /*border: solid 2em #BBDAF6;*/
-=======
->>>>>>> 1b705ead86617a6c5a10b0f4fad1087c0dc47d1b
-  border-top: none;
   padding: 2em;
   padding-top: 6em;
 
@@ -81,10 +71,8 @@ nav {
     z-index: 3;
     left: 0;
     top: 0;
-<<<<<<< HEAD
-=======
+
     color: #e5e5e5;
->>>>>>> 1b705ead86617a6c5a10b0f4fad1087c0dc47d1b
 }
 
 nav ul {
@@ -119,24 +107,18 @@ div h1 {
 
 h3 {
     font-weight: 900;
-<<<<<<< HEAD
-=======
+
     font-family: 'Source Sans Pro', sans-serif;
     color: #384149;
 
     margin-bottom: 0.3em;
->>>>>>> 1b705ead86617a6c5a10b0f4fad1087c0dc47d1b
 }
 
 li {
     list-style: none;
-<<<<<<< HEAD
     font-size: 14pt;
-=======
-    font-size: 12pt;
 
     color: #384149;
->>>>>>> 1b705ead86617a6c5a10b0f4fad1087c0dc47d1b
 }
 
 ul {
@@ -167,7 +149,6 @@ ul {
   margin-left: 0;
 }
 
->>>>>>> 1b705ead86617a6c5a10b0f4fad1087c0dc47d1b
 .bar-group {
   margin: 0.5em;
 
@@ -217,17 +198,12 @@ ul {
 #add {
   text-decoration: none;
   color: #BBDAF6 !important;
-<<<<<<< HEAD
-}
-
-#add:hover {
-  color: #8298ac !important;
-=======
 }
 
 #add:hover {
   color: #8298ac !important;
 }
+
 
 .pointer:hover {
   cursor: pointer;
@@ -235,5 +211,4 @@ ul {
 
 div.no-margin-top {
   margin-top: 0 !important;
->>>>>>> 1b705ead86617a6c5a10b0f4fad1087c0dc47d1b
 }
