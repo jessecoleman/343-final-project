@@ -30,59 +30,49 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		params: {'class': null, 'department': null}
 	});
 })
-.controller('MainController', function($scope, $state, $firebaseAuth, $firebaseObject) {
+.controller('MainController', function($scope, $state, $firebaseAuth, $firebaseObject, $firebaseArray) {
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
-	var usersRef = ref.child('users');
-	var authObj = $firebaseAuth(ref);
-	var authData = authObj.$getAuth();
+	$scope.users = $firebaseObject(ref.child('users'));
+	$scope.departments = $firebaseArray(ref.child('departments'));
+	$scope.authObj = $firebaseAuth(ref);
 
-	$scope.users = $firebaseObject(usersRef);
-
-	//console.log($scope.users[authData.uid].email);
-
-
+	// if user is logged in
+	$scope.authObj.$onAuth(function(authData) {
+		console.log($scope.users);
+		console.log($scope.users[authData.uid]);
+		$scope.user = $scope.users[authData.uid];
+		console.log('auth change');
+		console.log(authData);
+		console.log($scope.user);
+	});
 
 	$state.go('home');
-
-	$scope.user = {};
 
 })
 .controller('HomeController', function($scope, $state, $firebaseArray) {
 	console.log($scope.user);
-	var ref = new Firebase("https://welp-uw.firebaseio.com");
-	var departmentsRef = ref.child('departments');
-	$scope.departments = $firebaseArray(departmentsRef);
-	$scope.clicked = false; 
+	$scope.clicked = false;
 })
 .controller('BrowseController', function($scope, $firebaseArray) {
-	var ref = new Firebase("https://welp-uw.firebaseio.com");
-	var departmentsRef = ref.child('departments');
-	$scope.departments = $firebaseArray(departmentsRef);
 	$scope.clicked = false; 
 })
 .controller('LoginController', function($scope, $state, $firebaseAuth, $firebaseObject, $firebaseArray) {
   // display sign in first
 	$scope.signUpView = false;
 
-	// initialize firebase
-	var ref = new Firebase("https://welp-uw.firebaseio.com");
-	var usersRef = ref.child('users');
-
-	$scope.users = $firebaseObject(usersRef);
-	// authorization object
-	$scope.authObj = $firebaseAuth(ref);
-
 	// test if user is already logged in
 	var authData = $scope.authObj.$getAuth();
-
+	console.log(authData);
+	// logout
 	if(authData) {
-		$scope.userId = authData.uid; 
+		$scope.authObj.$unauth();
+		$scope.user = {};
+		console.log('logout');
 	}
 
 	// LogIn
 	$scope.logIn = function(userEmail, userPassword) {
-		//$scope.user.id = authData.uid;
-		$scope.user.email = userEmail;
+		// get user by credentials
 		return $scope.authObj.$authWithPassword({
 			email: userEmail,
 			password: userPassword
@@ -95,18 +85,21 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		$scope.authObj.$createUser({
 			email: $scope.newEmail,
 			password: $scope.newPassword
-		}).then($scope.logIn($scope.newEmail, $scope.newPassword))
-		.then(function (authData) {
-			// add user to users firebase array
-			$scope.userId = authData.uid 
-			$scope.users[authData.uid] = {
+		}).then(function() {
+			return $scope.logIn($scope.newEmail, $scope.newPassword);
+		})
+		.then(function(authData) {
+			console.log(authData);
+			//add user to firebase
+			$scope.$parent.user = {
 				//set user data
 				id: authData.uid,
 				email: $scope.newEmail
 			};
+			$scope.users[authData.uid] = $scope.user;
 			//save firebase array
 			$scope.users.$save();
-
+			//go home
 			$state.go('home');
 		}).catch(function (error) {
 			//display error message
@@ -114,8 +107,8 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		  	//clear user data from scope
 			console.log('error');
 			$scope.user = {
-				id: "",
-				email: ""
+				id: '',
+				email: ''
 		  	}
 		});
 	};
@@ -123,9 +116,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	// SignIn
 	$scope.signIn = function() {
 		$scope.logIn($scope.email, $scope.password)
-		.then(function(authData) {
-
-			//console.log($scope.users[authData.uid].email);
+		.then(function() {
 			$state.go('home');
 		}).catch(function(error) {
 			$scope.error = error;
@@ -135,30 +126,13 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 			}
 		});
 	};
-
-	// LogOut
-	$scope.logOut = function() {
-		$scope.authObj.$unauth();
-		$scope.user.id = null;
-		return;
-	};
-
-
-	//if directed to from logged in user
-	if(authData) {
-		$scope.logOut();
-	}
 })
 .controller('CreateClassController', function($scope, $state, $stateParams, $firebaseArray) {
-	var ref = new Firebase("https://welp-uw.firebaseio.com");
-	var departments = ref.child('departments');
-	var department = departments.child($stateParams.department.$id);
+	var department = departments[$stateParams.department.$id];
 	$scope.departmentTitle = $stateParams.department.title;
-	var classes = department.child('classes');
-	$scope.classes = $firebaseArray(classes);
+	$scope.classes = $firebaseArray(department.child('classes'));
 
-
-	$scope.submitClass = function() {
+		$scope.submitClass = function() {
 		$scope.classes.$add({
 			'classTitle': $scope.classTitle,
 			'courseNumber': $scope.courseNumber,
@@ -183,10 +157,8 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 
   	$scope.saveReview = function() {
 		console.log($scope.workload)
-  	}
+  	};
 
-	var ref = new Firebase("https://welp-uw.firebaseio.com");
-	var departments = ref.child('departments');
 	$scope.classTitle = $stateParams.class.classTitle;
 	$scope.classDescription = $stateParams.class.description;
 
