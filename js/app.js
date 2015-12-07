@@ -137,7 +137,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	}
 })
 .controller('ReviewClassController', function($scope, $state, $stateParams, $firebaseArray) {
-
+	
   	$(function() {
     	$('.bar').barrating({
        		theme: 'bars-movie',
