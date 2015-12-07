@@ -139,7 +139,6 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 
 	var classRef = classesRef.child($stateParams.class);
 	$scope.class = $firebaseObject(classRef);
-	console.log($scope.class);
 	var reviewsRef = classRef.child('reviews');
 	$scope.reviews = $firebaseArray(reviewsRef);
 
@@ -168,25 +167,32 @@ var app = angular.module('app', ['firebase', 'ui.router'])
   		$scope.workload = workload.value;
   		$scope.difficulty = difficulty.value;
   		$scope.grading = grading.value;
-  		// console.log($scope.workload);
-  		// console.log($scope.difficulty);
-  		// console.log($scope.grading);
     };
 
     //$scope.review = $stateParams.class.reviews
 	$scope.classTitle = $stateParams.class.classTitle;
 	$scope.classDescription = $stateParams.class.description;
+	
 	var workAvg = 0;
 	var diffAvg = 0;
-	var gradAvg = 0;
+	var gradAvg = 0; 
 	$scope.reviews.$loaded(function() {
+		var workTotal = 0;
+		var diffTotal = 0;
+		var gradTotal = 0;
+		var count = 0; 
 		var revArr = $scope.reviews;
 		angular.forEach(revArr, function(review) {
-			console.log(review.workload); 
+			count++;
+			workTotal += parseInt(review.workload); 
+			diffTotal += parseInt(review.difficulty);
+			gradTotal += parseInt(review.grading);
 		});	
+		workAvg = Math.floor(workTotal / count * 10) / 10;
+		diffAvg = Math.floor(diffTotal / count * 10) / 10;
+		gradAvg = Math.floor(gradTotal / count * 10) / 10;
 	})
-
-
+	
 
     $scope.review = $stateParams.class.reviews;
 	console.log($stateParams.class);
