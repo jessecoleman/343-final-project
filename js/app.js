@@ -130,7 +130,8 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		$scope.classes.$add({
 			'classTitle': $scope.classTitle,
 			'courseNumber': $scope.courseNumber,
-			'description': $scope.description
+			'description': $scope.description,
+			'reviews': 0 
 		});
 		$scope.classes.$save();
 		$state.go('browse');
@@ -150,6 +151,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
   	});
 
   	$scope.saveReview = function() {
+  		console.log(reviews);
   		$scope.workload = workload.value;
   		$scope.difficulty = difficulty.value;
   		$scope.grading = grading.value;
