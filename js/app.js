@@ -136,7 +136,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		$state.go('browse');
 	}
 })
-.controller('ReviewClassController', function($scope, $state, $stateParams) {
+.controller('ReviewClassController', function($scope, $state, $stateParams, $firebaseArray) {
 
   	$(function() {
     	$('.bar').barrating({
@@ -150,19 +150,8 @@ var app = angular.module('app', ['firebase', 'ui.router'])
   	});
 
   	$scope.saveReview = function() {
-		console.log($scope.workload)
   	};
 
 	$scope.classTitle = $stateParams.class.classTitle;
 	$scope.classDescription = $stateParams.class.description;
-
-
-	console.log($stateParams.class);
-	console.log($stateParams.department);
-
-	$(function() {
- 		$('.bar').barrating({
-   			theme: 'bars-movie'
- 		});
-  	});
 });
