@@ -40,7 +40,7 @@
 			    <option value=3>Hard</option>
 			    <option value=4>Sadistic Curve</option>
 		  </select>
-		</div>
+	</div>
 
 	<hr>
 
@@ -104,13 +104,13 @@
 
 			<!-- forms -->
 			<div id="review-form" class="grid-item 6/12">
-				<form>
+				<form novalidate name="review">
 					<fieldset>
-	        <input type="text" id="prof" class="form-input" placeholder="Instructor" ng-model="prof">
-				</br>
-					<textarea class="form-textarea" rows="8" cols="82" placeholder="Enter your message here" ng-model="text"></textarea>
-				</br>
-					<input id="button" type="submit" class="btn btn-primary" value="Save" ng-click="saveReview()">
+	        		<input type="text" id="prof" class="form-input" placeholder="Instructor" ng-model="prof" required />
+					<br>
+					<textarea class="form-textarea" rows="8" cols="82" placeholder="Enter your message here" ng-model="text" required></textarea>
+					<br>
+					<input id="button" type="submit" class="btn btn-primary" value="Save" ng-click="saveReview()" ng-disabled="review.$invalid">
 					</fieldset>
 	      		</form>
 			</div>
