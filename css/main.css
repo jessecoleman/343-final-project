@@ -12,43 +12,43 @@ body {
 }
 
 #bottom, #left, #right {
-	background: #BBDAF6;
-	position: fixed;
+    background: #BBDAF6;
+    position: fixed;
   z-index: 1;
-	}
-	#left, #right {
-		top: 0; bottom: 0;
-		width: 25px;
-		}
-		#left { left: 0; }
-		#right { right: 0; }
+    }
+    #left, #right {
+        top: 0; bottom: 0;
+        width: 25px;
+        }
+        #left { left: 0; }
+        #right { right: 0; }
 
-	#bottom {
-		left: 0; right: 0;
-		height: 25px;
-		}
+    #bottom {
+        left: 0; right: 0;
+        height: 25px;
+        }
 
-		#bottom { bottom: 0;
+        #bottom { bottom: 0;
 }
 
 #bottom, #left, #right {
-	background: #BBDAF6;
-	position: fixed;
+    background: #BBDAF6;
+    position: fixed;
   z-index: 1;
-	}
-	#left, #right {
-		top: 0; bottom: 0;
-		width: 15px;
-		}
-		#left { left: 0; }
-		#right { right: 0; }
+    }
+    #left, #right {
+        top: 0; bottom: 0;
+        width: 15px;
+        }
+        #left { left: 0; }
+        #right { right: 0; }
 
-	#bottom {
-		left: 0; right: 0;
-		height: 15px;
-		}
+    #bottom {
+        left: 0; right: 0;
+        height: 15px;
+        }
 
-		#bottom { bottom: 0;
+        #bottom { bottom: 0;
 }
 
 #content {
@@ -101,9 +101,9 @@ nav a:hover {
 
 div h1 {
   font-family: 'Source Sans Pro', sans-serif;
-	font-size: 2em;
+    font-size: 2em;
   font-weight: 900;
-	text-align: center;
+    text-align: center;
 }
 
 h3 {
@@ -126,8 +126,11 @@ ul {
     padding-left: 20px;
 }
 
-<<<<<<< HEAD
-=======
+#email, #password, #new-email, #new-password, #new-password-confirm {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 #browse {
   line-height: 2;
 }
@@ -156,44 +159,51 @@ ul {
   margin-bottom: 2.2em;
 }
 
-#login {
-	text-align: right;
+#login, #signup {
+    text-align: right;
+  margin-right: 30%;
+  margin-left: 30%;
+  font-size: 16px;
+}
+
+#sign {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  text-align: center;
 }
 
 #logo {
-	text-align: center;
+    text-align: center;
   font-size: 5em;
   font-family: 'Source Sans Pro';
   font-weight: 900;
 }
 
 #results {
-	margin-left: auto;
-	margin-right: auto;
-	width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
 }
 
 #results h1 {
-	text-align: left;
+    text-align: left;
 }
 
 #results ul {
-	list-style-type: none;
+    list-style-type: none;
 }
 
 #search {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 600px;
 }
 
 #top {
-	text-align: center;
-}
-
-#login {
-    float: right;
+    text-align: center;
 }
 
 #add {
@@ -204,7 +214,6 @@ ul {
 #add:hover {
   color: #8298ac !important;
 }
-
 
 .pointer:hover {
   cursor: pointer;
