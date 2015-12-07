@@ -37,7 +37,7 @@
               <a ui-sref="createClass({'department': department.$id})" id="add">+</a>
               <br>
               <ul>
-                  <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'class': class})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
+                  <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'department': department.$id, 'class': class.id})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
               </ul>
           </li>
       </ul>
