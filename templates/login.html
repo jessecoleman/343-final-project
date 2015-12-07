@@ -38,11 +38,11 @@
 </form>
 <br>
 
-<div ng-show="!signUpView">
+<div ng-show="!signUpView" id="sign">
   <span>Don't have an account yet?  </span>
   <button ng-click="signUpView = true" class="btn">Sign Up</button>
 </div>
-<div ng-show="signUpView">
+<div ng-show="signUpView" id="sign">
 <span>Already have an account?  </span>
 <button ng-click="signUpView = false" class="btn">Sign In</button>
 </div>

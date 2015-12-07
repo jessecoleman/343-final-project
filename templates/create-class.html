@@ -1,11 +1,10 @@
 <h2>Add a class from {{department.title}} to our database</h2>
-<form>
+<form novalidate name="createClass">
     <label for="class-title">Class Title</label><br>
-    <input id="class-title" type="text" ng-model="classTitle" /><br>
-
+    <input id="class-title" type="text" ng-model="classTitle" required /><br>
     <label for="course-number">Course Number</label><br>
-    <input id="course-number" type="number" ng-model="courseNumber" /><br>
+    <input id="course-number" type="number" ng-model="courseNumber" required /><br>
     <label for="description">Description</label><br>
-    <textarea id="description" ng-model="description"></textarea><br>
-    <button ng-click="submitClass()">Submit</button>
+    <textarea id="description" ng-model="description" required></textarea><br>
+    <button ng-click="submitClass()" ng-disabled="createClass.$invalid">Submit</button>
 </form>

@@ -123,8 +123,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	$scope.submitClass = function() {
 		var newClass = classesRef.push(); 
 		newClass.set({
-			'classTitle': $scope.classTitle,
-			'courseNumber': $scope.courseNumber,
+			'classTitle': $scope.classTitle + $scope.courseNumber,
 			'description': $scope.description,
 			'id': newClass.key()
 		});
