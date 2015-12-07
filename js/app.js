@@ -23,10 +23,9 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		controller: 'CreateClassController'
 	})
 	.state('reviewClass', {
-		url: '/browse/review',
+		url: '/browse/review/:department/:class',
 		templateUrl: 'templates/review.html',
-		controller: 'ReviewClassController',
-		params: {'class': null, 'department': null}
+		controller: 'ReviewClassController'
 	});
 })
 .controller('MainController', function($scope, $state, $firebaseAuth, $firebaseObject, $firebaseArray) {
@@ -134,6 +133,15 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	}
 })
 .controller('ReviewClassController', function($scope, $state, $stateParams, $firebaseArray, $firebaseObject) {
+	var departmentRef = $scope.departmentsRef.child($stateParams.department);
+	var classesRef = departmentRef.child('classes');
+	$scope.classes = $firebaseArray(classesRef);
+
+	var classRef = classesRef.child($stateParams.class);
+	$scope.class = $firebaseObject(classRef);
+	console.log($scope.class);
+	var reviewsRef = classRef.child('reviews');
+	$scope.reviews = $firebaseArray(reviewsRef);
 
   	$(function() {
     	$('.bar').barrating({
@@ -145,14 +153,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
      		theme: 'bars-movie'
      	});
   	});
- 	var departmentRef = $scope.departmentsRef.child($stateParams.department);
-	$scope.department = $firebaseObject(departmentRef);
-	var classesRef = departmentRef.child('classes');
-	$scope.classes = $firebaseArray(classesRef);
 
-	var classesReff = classesRef.child($stateParams.class.id);
-	var reviewsRef = classesReff.child('reviews');
-	$scope.reviews = $firebaseArray(reviewsRef);
   	$scope.saveReview = function() {
   		$scope.reviews.$add({
   			'workload': workload.value,
@@ -161,7 +162,8 @@ var app = angular.module('app', ['firebase', 'ui.router'])
   			'prof': $scope.prof,
   			'text': $scope.text,
   			'user': $scope.user.email 
-  		})
+  		});
+
   		$scope.reviews.$save(); 
   		$scope.workload = workload.value;
   		$scope.difficulty = difficulty.value;
@@ -170,6 +172,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
   		// console.log($scope.difficulty);
   		// console.log($scope.grading);
     };
+
     //$scope.review = $stateParams.class.reviews
 	$scope.classTitle = $stateParams.class.classTitle;
 	$scope.classDescription = $stateParams.class.description;
@@ -184,6 +187,8 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	})
 
 
+
+    $scope.review = $stateParams.class.reviews;
 	console.log($stateParams.class);
 	console.log($scope.reviews);
 	// console.log($stateParams.department);
