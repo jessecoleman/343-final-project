@@ -18,10 +18,9 @@ var app = angular.module('app', ['firebase', 'ui.router'])
         controller: 'LoginController'
     })
 	.state('createClass', {
-		url: '/browse/create-class',
+		url: '/browse/create-class/:department',
 		templateUrl: 'templates/create-class.html',
-		controller: 'CreateClassController',
-		params: {'department': null}
+		controller: 'CreateClassController'
 	})
 	.state('reviewClass', {
 		url: '/browse/review',
@@ -33,7 +32,8 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 .controller('MainController', function($scope, $state, $firebaseAuth, $firebaseObject, $firebaseArray) {
 	var ref = new Firebase("https://welp-uw.firebaseio.com");
 	$scope.users = $firebaseObject(ref.child('users'));
-	$scope.departments = $firebaseArray(ref.child('departments'));
+	$scope.departmentsRef = ref.child('departments');
+	$scope.departments = $firebaseArray($scope.departmentsRef);
 	$scope.authObj = $firebaseAuth(ref);
 
 	// if user is logged in
@@ -41,9 +41,6 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		if(authData) {
 			$scope.users.$loaded(function () {
 				$scope.user = $scope.users[authData.uid];
-				console.log('auth change');
-				console.log(authData);
-				console.log($scope.user);
 			});
 		} else {
 			$scope.user = {};
@@ -53,24 +50,22 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	$state.go('home');
 
 })
-.controller('HomeController', function($scope, $state, $firebaseArray) {
+.controller('HomeController', function($scope) {
 	$scope.clicked = false;
 })
-.controller('BrowseController', function($scope, $firebaseArray) {
+.controller('BrowseController', function($scope) {
 	$scope.clicked = false; 
 })
-.controller('LoginController', function($scope, $state, $firebaseAuth, $firebaseObject, $firebaseArray) {
+.controller('LoginController', function($scope, $state) {
   // display sign in first
 	$scope.signUpView = false;
 
 	// test if user is already logged in
 	var authData = $scope.authObj.$getAuth();
-	console.log(authData);
 	// logout
 	if(authData) {
 		$scope.authObj.$unauth();
 		$scope.user = {};
-		console.log('logout');
 	}
 
 	// LogIn
@@ -92,7 +87,6 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 			return $scope.logIn($scope.newEmail, $scope.newPassword);
 		})
 		.then(function(authData) {
-			console.log(authData);
 			//add user to firebase
 			$scope.$parent.user = {
 				//set user data
@@ -121,12 +115,13 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		});
 	};
 })
-.controller('CreateClassController', function($scope, $state, $stateParams, $firebaseArray) {
-	var department = departments[$stateParams.department.$id];
-	$scope.departmentTitle = $stateParams.department.title;
-	$scope.classes = $firebaseArray(department.child('classes'));
+.controller('CreateClassController', function($scope, $state, $stateParams, $firebaseArray, $firebaseObject) {
+	var departmentRef = $scope.departmentsRef.child($stateParams.department);
+	$scope.department = $firebaseObject(departmentRef);
+	var classesRef = departmentRef.child('classes');
+	$scope.classes = $firebaseArray(classesRef);
 
-		$scope.submitClass = function() {
+	$scope.submitClass = function() {
 		$scope.classes.$add({
 			'classTitle': $scope.classTitle,
 			'courseNumber': $scope.courseNumber,

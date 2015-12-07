@@ -7,7 +7,7 @@
 
                    <span ng-click="clicked ? clicked = false : clicked = true" class="pointer"> <i class="fa fa-caret-right" ng-show="!clicked && department.classes"></i><i class="fa fa-caret-down" ng-show="clicked && department.classes"></i> {{department.title}}</span>
 
-                    <a ui-sref="createClass({'department': department})" id="add">+</a>
+                    <a ui-sref="createClass({'department': department.$id})" id="add">+</a>
 
                     <br>
 

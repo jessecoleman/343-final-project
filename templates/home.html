@@ -34,7 +34,7 @@
       <ul>
           <li ng-repeat="department in departments | filter: search" ng-show="search">
              <span class="pointer">{{department.title}}</span>
-              <a ui-sref="createClass({'department': department})" id="add">+</a>
+              <a ui-sref="createClass({'department': department.$id})" id="add">+</a>
               <br>
               <ul>
                   <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'class': class})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
