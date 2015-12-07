@@ -154,26 +154,38 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	var reviewsRef = classesReff.child('reviews');
 	$scope.reviews = $firebaseArray(reviewsRef);
   	$scope.saveReview = function() {
-  		//if ($scope.review == 0) 
   		$scope.reviews.$add({
   			'workload': workload.value,
   			'difficulty': difficulty.value,
   			'grading': grading.value,
   			'prof': $scope.prof,
-  			'text': $scope.text
+  			'text': $scope.text,
+  			'user': $scope.user.email 
   		})
   		$scope.reviews.$save(); 
   		$scope.workload = workload.value;
   		$scope.difficulty = difficulty.value;
   		$scope.grading = grading.value;
-  		console.log($scope.workload);
-  		console.log($scope.difficulty);
-  		console.log($scope.grading);
+  		// console.log($scope.workload);
+  		// console.log($scope.difficulty);
+  		// console.log($scope.grading);
     };
-    $scope.review = $stateParams.class.reviews
+    //$scope.review = $stateParams.class.reviews
 	$scope.classTitle = $stateParams.class.classTitle;
 	$scope.classDescription = $stateParams.class.description;
+	var workAvg = 0;
+	var diffAvg = 0;
+	var gradAvg = 0;
+	$scope.reviews.$loaded(function() {
+		var revArr = $scope.reviews;
+		angular.forEach(revArr, function(review) {
+			console.log(review.workload); 
+		});	
+	})
+
+
 	console.log($stateParams.class);
-	console.log($stateParams.department);
-	console.log($stateParams.class.id);
+	console.log($scope.reviews);
+	// console.log($stateParams.department);
+	// console.log($stateParams.class.id);
 });

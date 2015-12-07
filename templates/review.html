@@ -120,15 +120,18 @@
 	</div>
 
 	<!-- tips + comments -->
-	<div id="tips" class="wrapper">
+	<div id="tips" class="wrapper" ng-repeat="review in reviews">
 		<!-- loop and get data from firebase -->
 		<!-- below is example for layout -->
 
-		<h4>username</h4>
-		<h4>instructor</h4>
-
+		
+		<h4>{{review.prof}}</h4>
+		<h6>{{review.user}}</h6>
 		<p class="comment">
-			lalala
+			{{review.text}}
+		</p>
+		<p>
+			Workload: {{review.workload}}, Difficulty: {{review.difficulty}}, Grading & Leniency: {{review.grading}}
 		</p>
 
 	</div>
