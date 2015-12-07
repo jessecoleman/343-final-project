@@ -150,7 +150,13 @@ var app = angular.module('app', ['firebase', 'ui.router'])
   	});
 
   	$scope.saveReview = function() {
-  	};
+  		$scope.workload = workload.value;
+  		$scope.difficulty = difficulty.value;
+  		$scope.grading = grading.value;
+  		console.log($scope.workload);
+  		console.log($scope.difficulty);
+  		console.log($scope.grading);
+    };
 
 	$scope.classTitle = $stateParams.class.classTitle;
 	$scope.classDescription = $stateParams.class.description;
