@@ -106,9 +106,9 @@
 			<div id="review-form" class="grid-item 6/12">
 				<form>
 					<fieldset>
-	        <input type="text" id="prof" class="form-input" placeholder="Instructor">
+	        <input type="text" id="prof" class="form-input" placeholder="Instructor" ng-model="prof">
 				</br>
-					<textarea class="form-textarea" rows="8" cols="82" placeholder="Enter your message here"></textarea>
+					<textarea class="form-textarea" rows="8" cols="82" placeholder="Enter your message here" ng-model="text"></textarea>
 				</br>
 					<input id="button" type="submit" class="btn btn-primary" value="Save" ng-click="saveReview()">
 					</fieldset>

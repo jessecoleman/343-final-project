@@ -12,7 +12,7 @@
                     <br>
 
                     <ul ng-show="clicked">
-                        <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'class': class})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
+                        <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'department': department.$id, 'class': class})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
                     </ul>
 
                 </li>

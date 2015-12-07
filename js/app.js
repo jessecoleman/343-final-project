@@ -122,18 +122,19 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	$scope.classes = $firebaseArray(classesRef);
 
 	$scope.submitClass = function() {
-		$scope.classes.$add({
+		var newClass = classesRef.push(); 
+		newClass.set({
 			'classTitle': $scope.classTitle,
 			'courseNumber': $scope.courseNumber,
 			'description': $scope.description,
-			'reviews': 0 
+			'id': newClass.key()
 		});
 		$scope.classes.$save();
 		$state.go('browse');
 	}
 })
-.controller('ReviewClassController', function($scope, $state, $stateParams, $firebaseArray) {
-	
+.controller('ReviewClassController', function($scope, $state, $stateParams, $firebaseArray, $firebaseObject) {
+
   	$(function() {
     	$('.bar').barrating({
        		theme: 'bars-movie',
@@ -144,9 +145,24 @@ var app = angular.module('app', ['firebase', 'ui.router'])
      		theme: 'bars-movie'
      	});
   	});
+ 	var departmentRef = $scope.departmentsRef.child($stateParams.department);
+	$scope.department = $firebaseObject(departmentRef);
+	var classesRef = departmentRef.child('classes');
+	$scope.classes = $firebaseArray(classesRef);
 
+	var classesReff = classesRef.child($stateParams.class.id);
+	var reviewsRef = classesReff.child('reviews');
+	$scope.reviews = $firebaseArray(reviewsRef);
   	$scope.saveReview = function() {
-  		console.log(reviews);
+  		//if ($scope.review == 0) 
+  		$scope.reviews.$add({
+  			'workload': workload.value,
+  			'difficulty': difficulty.value,
+  			'grading': grading.value,
+  			'prof': $scope.prof,
+  			'text': $scope.text
+  		})
+  		$scope.reviews.$save(); 
   		$scope.workload = workload.value;
   		$scope.difficulty = difficulty.value;
   		$scope.grading = grading.value;
@@ -154,7 +170,10 @@ var app = angular.module('app', ['firebase', 'ui.router'])
   		console.log($scope.difficulty);
   		console.log($scope.grading);
     };
-
+    $scope.review = $stateParams.class.reviews
 	$scope.classTitle = $stateParams.class.classTitle;
 	$scope.classDescription = $stateParams.class.description;
+	console.log($stateParams.class);
+	console.log($stateParams.department);
+	console.log($stateParams.class.id);
 });
