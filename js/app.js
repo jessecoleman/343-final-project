@@ -149,7 +149,8 @@ var app = angular.module('app', ['firebase', 'ui.router'])
      	});
 
      	$('.review').barrating({
-     		theme: 'bars-movie'
+     		theme: 'bars-movie',
+     		initialRating: null
      	});
   	});
 
@@ -189,14 +190,24 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 			diffTotal += parseInt(review.difficulty);
 			gradTotal += parseInt(review.grading);
 		});	
+
 		// Avg to 1 decimal for displaying
 		workAvg = Math.round(workTotal / count * 10) / 10;
 		diffAvg = Math.round(diffTotal / count * 10) / 10;
 		gradAvg = Math.round(gradTotal / count * 10) / 10;
 
-		$scope.workAvg = "Workload: " + workAvg;
-		$scope.diffAvg = "Difficulty: " + diffAvg;
-		$scope.gradAvg = "Grading & Leniency: " + gradAvg;
+		// Attach numbers when there are reviews
+		$scope.workAvg = "Workload"
+		$scope.diffAvg = "Difficulty";
+		$scope.gradAvg = "Grading & Leniency";
+		$scope.totalReview = " (no reviews yet!)"
+
+		if (count > 0) {
+			$scope.workAvg += ": " + workAvg;
+			$scope.diffAvg += ": " + diffAvg;
+			$scope.gradAvg += ": " + gradAvg;
+			$scope.totalReview = " (" + count + " reviews)";
+		}
 
 		// Display average ratings
 		$('#avgWorkload').barrating('set', Math.round(workAvg));

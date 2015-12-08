@@ -278,3 +278,13 @@ div.no-margin-top {
 #reviewText {
   font-size: 16px;
 }
+
+#overview {
+  display: inline;
+}
+
+#totalReview {
+  display: inline;
+  font-style: italic;
+  color: gray;
+}

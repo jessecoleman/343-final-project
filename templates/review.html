@@ -2,7 +2,8 @@
 	<h1 id="class-title">{{class.classTitle}} {{class.courseNumber}}</h1>
 	<p class="class-des" id="class-des">{{class.description}}</p>
 
-	<h2>Overview</h2>
+	<h2 id="overview">Overview </h2>
+	<h4 ng-bind="totalReview" id="totalReview"></h4>
 	<!-- bars -->
 	<div class="br-wrapper br-theme-bars-movie">
 		<div class="bar-group">
@@ -30,7 +31,7 @@
 		</div>
 
 		<!-- grading -->
-		<h3 id="gradingAvg" ng-Bind="gradAvg">Grading & Leniency</h3>
+		<h3 id="gradingAvg" ng-bind="gradAvg">Grading & Leniency</h3>
 		<div class="bar-group">
 			<select class="bar" id="avgGrading">
 				<option value=></option>
