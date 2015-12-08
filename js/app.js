@@ -133,11 +133,12 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 })
 .controller('ReviewClassController', function($scope, $state, $stateParams, $firebaseArray, $firebaseObject) {
 	var departmentRef = $scope.departmentsRef.child($stateParams.department);
+
 	var classesRef = departmentRef.child('classes');
 	$scope.classes = $firebaseArray(classesRef);
-
 	var classRef = classesRef.child($stateParams.class);
 	$scope.class = $firebaseObject(classRef);
+
 	var reviewsRef = classRef.child('reviews');
 	$scope.reviews = $firebaseArray(reviewsRef);
 
@@ -174,7 +175,8 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	
 	var workAvg = 0;
 	var diffAvg = 0;
-	var gradAvg = 0; 
+	var gradAvg = 0;
+
 	$scope.reviews.$loaded(function() {
 		var workTotal = 0;
 		var diffTotal = 0;
@@ -192,10 +194,5 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		gradAvg = Math.floor(gradTotal / count * 10) / 10;
 	})
 	
-
     $scope.review = $stateParams.class.reviews;
-	console.log($stateParams.class);
-	console.log($scope.reviews);
-	// console.log($stateParams.department);
-	// console.log($stateParams.class.id);
 });

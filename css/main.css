@@ -59,6 +59,14 @@ body {
   margin: 0;
 }
 
+#id {
+  color: black;
+}
+
+#guidelines {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
 nav {
     background-color: #384149;
     display: table;
@@ -118,7 +126,6 @@ h3 {
 li {
     list-style: none;
     font-size: 14pt;
-
     color: #384149;
 }
 
@@ -160,7 +167,7 @@ ul {
 }
 
 #login, #signup {
-    text-align: right;
+  text-align: right;
   margin-right: 30%;
   margin-left: 30%;
   font-size: 16px;

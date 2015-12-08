@@ -45,6 +45,19 @@
 	<hr>
 
 	<h2>Reviews</h2>
+	<!-- review guidelines -->
+	<div id="review-guidelines">
+		<div class="box">
+			<p id="guidelines">Some things to think about while writing your review:</p>
+			<ul>
+				<li><b>Workload</b> - how much work did you do? How many hours do you spend a week? Is it fair?</li>
+				<li><b>Difficulty</b> - was the content of the class hard? How much of the class did you understand?</li>
+				<li><b>Grading and Leniency</b> - was the grading fair? How did the curve work?</li>
+				<li><b>Tips</b> - how to do well in this class? Does participation matter? Is the textbook useful?</li>
+			</ul>
+		</div>
+	</div>
+
 	<!-- submit review -->
 	<!-- hide if not logged in -->
 	<div id="submit-review" class="wrapper" ng-show="user.email">
@@ -85,28 +98,13 @@
 				    <option value=4>GPA Booster</option>
 			  </select>
 			</div>
-
-			<div class="grid">
-				<!-- review guidelines -->
-				<div id="review-guidelines" class="grid-item 6/12">
-					<div class="box">
-						<p>Some things to think about while writing your review:</p>
-						<ul>
-							<li><b>Workload</b> - how much work did you do? How many hours do you spend a week? Is it fair?</li>
-							<li><b>Difficulty</b> - was the content of the class hard? How much of the class did you understand?</li>
-							<li><b>Grading and Leniency</b> - was the grading fair? How did the curve work?</li>
-							<li><b>Tips</b> - how to do well in this class? Does participation matter? Is the textbook useful?</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<br />
+			<br>
 
 			<!-- forms -->
-			<div id="review-form" class="grid-item 6/12">
+			<div id="review-form">
 				<form novalidate name="review">
 					<fieldset>
-	        		<input type="text" id="prof" class="form-input" placeholder="Instructor" ng-model="prof" required />
+	        		<input type="text" id="prof" class="form-input grid-item 4/12" placeholder="Instructor" ng-model="prof" required />
 					<br>
 					<textarea class="form-textarea" rows="8" cols="82" placeholder="Enter your message here" ng-model="text" required></textarea>
 					<br>
@@ -118,21 +116,15 @@
 
 		</div>
 	</div>
+	<br>
 
-	<!-- tips + comments -->
-	<div id="tips" class="wrapper" ng-repeat="review in reviews">
-		<!-- loop and get data from firebase -->
-		<!-- below is example for layout -->
-
-		
+	<!-- display -->
+	<div id="tips" class="wrapper" ng-repeat="review in reviews">	
 		<h4>{{review.prof}}</h4>
-		<h6>{{review.user}}</h6>
-		<p class="comment">
-			{{review.text}}
+		<h6>Review by: {{review.user}}</h6>
+		<p class="grid-item 3/12">
+			Workload: {{review.workload}} <br> Difficulty: {{review.difficulty}} <br> Grading & Leniency: {{review.grading}}
 		</p>
-		<p>
-			Workload: {{review.workload}}, Difficulty: {{review.difficulty}}, Grading & Leniency: {{review.grading}}
-		</p>
-
+		<p class="grid-item 8/12">{{review.text}}</p>
 	</div>
 </div>
