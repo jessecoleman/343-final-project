@@ -1,10 +1,9 @@
 <div class="wrapper">
-	<h1 id="class-title">{{class.classTitle}}</h1>
+	<h1 id="class-title">{{class.classTitle}} {{class.courseNumber}}</h1>
 	<p class="class-des" id="class-des">{{class.description}}</p>
 
 	<h2>Overview</h2>
 	<!-- bars -->
-
 	<div class="br-wrapper br-theme-bars-movie">
 		<div class="bar-group">
 			<!-- workload -->
@@ -41,12 +40,11 @@
 			    <option value=4>Sadistic Curve</option>
 		  </select>
 	</div>
-
 	<hr>
 
-	<h2>Write Your Review</h2>
 	<!-- review guidelines -->
-	<div id="review-guidelines">
+	<div id="review-guidelines" ng-show="$scope.user">
+		<h2>Write Your Review</h2>
 		<div class="box">
 			<p id="guidelines">Some things to think about while writing your review:</p>
 			<ul>
@@ -61,7 +59,7 @@
 
 	<!-- submit review -->
 	<!-- hide if not logged in -->
-	<div id="submit-review" class="wrapper" ng-show="user.email">
+	<div id="submit-review" class="wrapper" ng-show="$scope.user">
 		<!-- bars -->
 		<div class="br-wrapper br-theme-bars-movie">
 			<div class="bar-group">

@@ -6,5 +6,5 @@
     <input id="course-number" type="number" ng-model="courseNumber" required /><br>
     <label for="description" id="addClass">Description</label><br>
     <textarea id="description" ng-model="description" required></textarea><br><br>
-    <button class="btn btn-primary" ng-click="submitClass()" ng-disabled="createClass.$invalid">Submit</button>
+    <button class="btn btn-primary" id="addClass" ng-click="submitClass()" ng-disabled="createClass.$invalid">Submit</button>
 </form>

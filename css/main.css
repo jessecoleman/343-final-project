@@ -5,7 +5,6 @@ body {
   font-weight: 400;
   font-size: 12px;
   line-height: 1.4;
-
   margin: 0;
   color: #323232;
 
@@ -238,16 +237,19 @@ div.no-margin-top {
 }
 
 #class-title, #course-number {
-  font-size: 28px;
+  margin-left: 1em;
+  font-size: 48px;
   margin-bottom: 0.5em;
 }
 
 #description {
+  margin-left: 1.5em;
   font-size: 18px;
   width: 50%;
 }
 
 #addClass {
+  margin-left: 1.5em;
   font-size: 16px;
 }
 
