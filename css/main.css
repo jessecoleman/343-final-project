@@ -109,9 +109,9 @@ nav a:hover {
 
 div h1 {
   font-family: 'Source Sans Pro', sans-serif;
-    font-size: 2em;
+  font-size: 2em;
   font-weight: 900;
-    text-align: center;
+  text-align: center;
 }
 
 h3 {
@@ -231,4 +231,27 @@ div.no-margin-top {
 
 #test {
 
+}
+
+#userRate {
+  text-align: right;
+}
+
+#class-des {
+  font-size: 18px;
+}
+
+#class-title {
+  font-size: 48px;
+}
+
+#profName {
+  margin-bottom: 0.25em;
+}
+
+#user {
+  margin-bottom: 0.5em;
+  color: gray;
+  font-style: italic;
+  font-weight: normal;
 }

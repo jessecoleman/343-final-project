@@ -1,6 +1,6 @@
 <div class="wrapper">
-	<h1>{{class.classTitle}}</h1>
-	<p class="class-des">{{class.description}}</p>
+	<h1 id="class-title">{{class.classTitle}}</h1>
+	<p class="class-des" id="class-des">{{class.description}}</p>
 
 	<h2>Overview</h2>
 	<!-- bars -->
@@ -44,7 +44,7 @@
 
 	<hr>
 
-	<h2>Reviews</h2>
+	<h2>Write Your Review</h2>
 	<!-- review guidelines -->
 	<div id="review-guidelines">
 		<div class="box">
@@ -118,10 +118,12 @@
 	<br>
 
 	<!-- display -->
+	<h2>Reviews</h2>
 	<div id="tips" class="wrapper" ng-repeat="review in reviews">	
-		<h4>{{review.prof}}</h4>
-		<h6>Review by: {{review.user}}</h6>
-		<p class="grid-item 3/12">Workload: {{review.workload}}<br> Difficulty: {{review.difficulty}} <br> Grading & Leniency: {{review.grading}}</p>
+		<h4 id="profName">{{review.prof}}</h4>
+		<h6 id="user">Review by: {{review.user}}</h6>
+		<br>
+		<p class="grid-item 3/12" id="userRate">Workload: <b>{{review.workload}}</b><br>Difficulty: <b>{{review.difficulty}}</b><br>Grading & Leniency: <b>{{review.grading}}</b></p>
 		<p class="grid-item 8/12">{{review.text}}</p>
 		<hr>
 	</div>

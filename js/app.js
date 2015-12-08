@@ -194,13 +194,14 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		diffAvg = Math.round(diffTotal / count * 10) / 10;
 		gradAvg = Math.round(gradTotal / count * 10) / 10;
 
+		// Display average ratings
 		$('#avgWorkload').barrating('set', Math.round(workAvg));
 		$('#avgDifficulty').barrating('set', Math.round(diffAvg));
 		$('#avgGrading').barrating('set', Math.round(gradAvg));
 
-		document.getElementById('workloadAvg').innerHTML = 'Workload ' + workAvg;
-		document.getElementById('difficultyAvg').innerHTML = 'Difficulty ' + diffAvg;
-		document.getElementById('gradingAvg').innerHTML = 'Grading & Leniency ' + gradAvg;
+		document.getElementById('workloadAvg').innerHTML = 'Workload: <i>' + workAvg + '</i>';
+		document.getElementById('difficultyAvg').innerHTML = 'Difficulty: <i>' + diffAvg + '</i>';
+		document.getElementById('gradingAvg').innerHTML = 'Grading & Leniency: <i>' + gradAvg + '</i>';
 	})
 	
     $scope.review = $stateParams.class.reviews;
