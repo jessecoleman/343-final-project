@@ -162,7 +162,6 @@ ul {
 
 .bar-group {
   margin: 0.5em;
-
   margin-bottom: 2.2em;
 }
 
@@ -228,4 +227,8 @@ ul {
 
 div.no-margin-top {
   margin-top: 0 !important;
+}
+
+#test {
+
 }

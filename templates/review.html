@@ -85,7 +85,6 @@
 					<option value=2>Manageable</option>
 					<option value=3>Difficult</option>
 					<option value=4>Rocket Science</option>
-
 			  	</select>
 			</div>
 
@@ -122,16 +121,7 @@
 	<div id="tips" class="wrapper" ng-repeat="review in reviews">	
 		<h4>{{review.prof}}</h4>
 		<h6>Review by: {{review.user}}</h6>
-		<p class="grid-item 3/12">
-			Workload:
-			 {{review.workload}} 
-
-
-
-
-
-			<br> Difficulty: {{review.difficulty}} <br> Grading & Leniency: {{review.grading}}
-		</p>
+		<p class="grid-item 3/12">Workload: {{review.workload}}<br> Difficulty: {{review.difficulty}} <br> Grading & Leniency: {{review.grading}}</p>
 		<p class="grid-item 8/12">{{review.text}}</p>
 		<hr>
 	</div>
