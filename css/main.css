@@ -229,10 +229,6 @@ div.no-margin-top {
   margin-top: 0 !important;
 }
 
-#test {
-
-}
-
 #userRate {
   text-align: right;
 }
@@ -241,8 +237,18 @@ div.no-margin-top {
   font-size: 18px;
 }
 
-#class-title {
-  font-size: 48px;
+#class-title, #course-number {
+  font-size: 28px;
+  margin-bottom: 0.5em;
+}
+
+#description {
+  font-size: 18px;
+  width: 50%;
+}
+
+#addClass {
+  font-size: 16px;
 }
 
 #profName {
@@ -254,4 +260,8 @@ div.no-margin-top {
   color: gray;
   font-style: italic;
   font-weight: normal;
+}
+
+#reviewText {
+  font-size: 16px;
 }

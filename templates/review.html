@@ -106,7 +106,7 @@
 					<fieldset>
 	        		<input type="text" id="prof" class="form-input grid-item 4/12" placeholder="Instructor" ng-model="prof" required />
 					<br>
-					<textarea class="form-textarea" rows="8" cols="82" placeholder="Enter your message here" ng-model="text" required></textarea>
+					<textarea class="form-textarea" id="reviewText" rows="8" cols="82" placeholder="Enter your message here" ng-model="text" required></textarea>
 					<br>
 					<input id="button" type="submit" class="btn btn-primary" value="Save" ng-click="saveReview()" ng-disabled="review.$invalid">
 					</fieldset>
