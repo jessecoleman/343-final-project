@@ -8,7 +8,7 @@
 	<div class="br-wrapper br-theme-bars-movie">
 		<div class="bar-group">
 			<!-- workload -->
-			<h3>Workload</h3>
+			<h3 id="workloadAvg">Workload</h3>
 		 	<select class="bar" id="avgWorkload">
 		 		<option value=""></option>
 		 		<option value=1>Little</option>
@@ -19,7 +19,7 @@
 		</div>
 
 		<!-- difficulty -->
-		<h3>Difficulty</h3>
+		<h3 id="difficultyAvg">Difficulty</h3>
 		<div class="bar-group">
 			<select class="bar" id="avgDifficulty">
 				<option value=""></option>
@@ -31,9 +31,9 @@
 		</div>
 
 		<!-- grading -->
-		<h3>Grading and Leniency</h3>
+		<h3 id="gradingAvg">Grading & Leniency</h3>
 		<div class="bar-group">
-			<select class="bar" id="avgGrad">
+			<select class="bar" id="avgGrading">
 				<option value=""></option>
 			    <option value=1>GPA Booster</option>
 			    <option value=2>Fair</option>
@@ -114,7 +114,6 @@
 	      		</form>
 			</div>
 		</div>
-
 		</div>
 	</div>
 	<br>
@@ -124,8 +123,16 @@
 		<h4>{{review.prof}}</h4>
 		<h6>Review by: {{review.user}}</h6>
 		<p class="grid-item 3/12">
-			Workload: {{review.workload}} <br> Difficulty: {{review.difficulty}} <br> Grading & Leniency: {{review.grading}}
+			Workload:
+			 {{review.workload}} 
+
+
+
+
+
+			<br> Difficulty: {{review.difficulty}} <br> Grading & Leniency: {{review.grading}}
 		</p>
 		<p class="grid-item 8/12">{{review.text}}</p>
+		<hr>
 	</div>
 </div>

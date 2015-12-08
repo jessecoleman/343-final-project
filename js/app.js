@@ -196,7 +196,11 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 
 		$('#avgWorkload').barrating('set', Math.round(workAvg));
 		$('#avgDifficulty').barrating('set', Math.round(diffAvg));
-		$('#avgGrad').barrating('set', Math.round(gradAvg));
+		$('#avgGrading').barrating('set', Math.round(gradAvg));
+
+		document.getElementById('workloadAvg').innerHTML = 'Workload ' + workAvg;
+		document.getElementById('difficultyAvg').innerHTML = 'Difficulty ' + diffAvg;
+		document.getElementById('gradingAvg').innerHTML = 'Grading & Leniency ' + gradAvg;
 	})
 	
     $scope.review = $stateParams.class.reviews;
