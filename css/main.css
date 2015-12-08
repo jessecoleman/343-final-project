@@ -253,6 +253,17 @@ div.no-margin-top {
   font-size: 16px;
 }
 
+#classTitle, #courseNumber, #descript {
+  width: 15%;
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+  font-size: 16px;
+}
+
+#descript {
+  width: 50%;
+}
+
 #profName {
   margin-bottom: 0.25em;
 }
