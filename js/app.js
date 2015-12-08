@@ -189,9 +189,14 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 			diffTotal += parseInt(review.difficulty);
 			gradTotal += parseInt(review.grading);
 		});	
-		workAvg = Math.floor(workTotal / count * 10) / 10;
-		diffAvg = Math.floor(diffTotal / count * 10) / 10;
-		gradAvg = Math.floor(gradTotal / count * 10) / 10;
+		// Avg to 1 decimal for displaying
+		workAvg = Math.round(workTotal / count * 10) / 10;
+		diffAvg = Math.round(diffTotal / count * 10) / 10;
+		gradAvg = Math.round(gradTotal / count * 10) / 10;
+
+		$('#avgWorkload').barrating('set', Math.round(workAvg));
+		$('#avgDifficulty').barrating('set', Math.round(diffAvg));
+		$('#avgGrad').barrating('set', Math.round(gradAvg));
 	})
 	
     $scope.review = $stateParams.class.reviews;
