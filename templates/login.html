@@ -50,6 +50,6 @@
       <p ng-show="signup.newPasswordConfirmField.$toucheds && newPasswordConfirm != newPassword">passwords do not match</p>
       <p ng-show="signup.newPasswordConfirmField.$valid && newPasswordConfirm == newPassword">passwords match</p>
     </fieldset>
-    <button type="submit" ng-click="signUp()" ng-disabled="signup.$invalid || newPassword != newPasswordConfirm" class="btn">Sign Up</button>
+    <button type="submit" ng-click="signUp()" ng-disabled="signup.$invalid || newPassword != newPasswordConfirm" class="btn btn-primary">Sign Up</button>
   </form>
 </div>
