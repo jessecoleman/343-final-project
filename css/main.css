@@ -295,7 +295,7 @@ div.no-margin-top {
 #user {
   margin-bottom: 0.5em;
   color: #5f666d;
-  /*font-style: italic;*/
+  font-style: italic;
   font-weight: normal;
 }
 
@@ -307,7 +307,6 @@ form {
   color: #384149;
 }
 
-
 #reviewText {
   font-size: 16px;
 }
@@ -318,6 +317,6 @@ form {
 
 #totalReview {
   display: inline;
-  /*font-style: italic;*/
+  font-style: italic;
   color: #5f666d;
 }
