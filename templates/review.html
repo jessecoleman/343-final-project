@@ -1,13 +1,15 @@
+<!-- Fragment for the review page for each course -->
 <div class="wrapper">
 	<h1 id="class-title">{{class.classTitle}} {{class.courseNumber}}</h1>
 	<p class="class-des" id="class-des">{{class.description}}</p>
 
 	<h2 id="overview">Overview </h2>
 	<h4 ng-bind="totalReview" id="totalReview"></h4>
-	<!-- bars -->
+
+	<!-- Bars -->
 	<div class="br-wrapper br-theme-bars-movie">
 		<div class="bar-group">
-			<!-- workload -->
+			<!-- Workload Average-->
 			<h3 id="workloadAvg" ng-bind="workAvg">Workload</h3>
 		 	<select class="bar" id="avgWorkload">
 		 		<option value=></option>
@@ -18,7 +20,7 @@
 		  	</select>
 		</div>
 
-		<!-- difficulty -->
+		<!-- Difficulty Average -->
 		<h3 id="difficultyAvg" ng-bind="diffAvg">Difficulty</h3>
 		<div class="bar-group">
 			<select class="bar" id="avgDifficulty">
@@ -30,7 +32,7 @@
 		  	</select>
 		</div>
 
-		<!-- grading -->
+		<!-- Grading Average -->
 		<h3 id="gradingAvg" ng-bind="gradAvg">Grading & Leniency</h3>
 		<div class="bar-group">
 			<select class="bar" id="avgGrading">
@@ -40,10 +42,13 @@
 			    <option value=3>Hard</option>
 			    <option value=4>Sadistic Curve</option>
 		  </select>
+		</div>
 	</div>
+
 	<hr>
 
-	<!-- review guidelines -->
+	<!-- Review guidelines, allows user to write their own reviews -->
+	<!-- Only shows if the user is logged in -->
 	<div id="review-guidelines" ng-show="user.email">
 		<h2>Write Your Review</h2>
 		<div class="box">
@@ -58,13 +63,14 @@
 	</div>
 	<br>
 
-	<!-- submit review -->
-	<!-- hide if not logged in -->
+	<!-- Submitting Review -->
+	<!-- Only shows if the user is logged in -->
 	<div id="submit-review" class="wrapper" ng-show="user.email">
-		<!-- bars -->
+		<!-- Bars -->
 		<div class="br-wrapper br-theme-bars-movie">
+			<!-- Values chosen by reviewer -->
 			<div class="bar-group">
-				<!-- workload -->
+				<!-- Workload Score-->
 				<h3>Workload</h3>
 			  	<select class="review" id="workload" ng-model="workload">
 			  		<option value=></option>
@@ -75,7 +81,7 @@
 			  	</select>
 			</div>
 
-			<!-- difficulty -->
+			<!-- Difficulty Score-->
 			<div class="bar-group">
 				<h3>Difficulty</h3>
 				<select class="review" id="difficulty" ng-model="difficulty">
@@ -87,8 +93,9 @@
 			  	</select>
 			</div>
 
+			<!-- Grading Score-->
 			<div class="bar-group">
-				<h3>Grading and Leniency</h3>
+				<h3>Grading & Leniency</h3>
 				<select class="review" id="grading" ng-model="grading">
 					<option value=></option>
 				    <option value=1>Sadistic Curve</option>
@@ -99,7 +106,7 @@
 			</div>
 			<br>
 
-			<!-- forms -->
+			<!-- Rest of review; form for instructor name and review -->
 			<div id="review-form">
 				<form novalidate name="review">
 					<fieldset>
@@ -112,11 +119,11 @@
 	      		</form>
 			</div>
 		</div>
-		</div>
 	</div>
+
 	<br>
 
-	<!-- display -->
+	<!-- Display all reviews submitted by users -->
 	<h2>Reviews</h2>
 	<div id="tips" class="wrapper" ng-repeat="review in reviews">	
 		<h4 id="profName">{{review.prof}}</h4>
