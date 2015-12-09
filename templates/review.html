@@ -54,6 +54,48 @@
 	<!-- Only shows if the user is logged in -->
 	<div id="review-guidelines" ng-show="user.email">
 		<h2>Write Your Review</h2>
+		<!-- Submitting Review -->
+		<!-- Only shows if the user is logged in -->
+		<div id="submit-review" class="wrapper" ng-show="user.email">
+			<!-- Bars -->
+			<div class="br-wrapper br-theme-bars-movie">
+				<!-- Values chosen by reviewer -->
+				<div class="bar-group">
+					<!-- Workload Score-->
+					<h3>Workload</h3>
+				  	<select class="review" id="workload" ng-model="workload">
+				  		<option value=></option>
+				  	    <option value=1>Little</option>
+				  	    <option value=2>Fair</option>
+				  	    <option value=3>A Lot</option>
+				  	    <option value=4>Torture</option>
+				  	</select>
+				</div>
+
+				<!-- Difficulty Score-->
+				<div class="bar-group">
+					<h3>Difficulty</h3>
+					<select class="review" id="difficulty" ng-model="difficulty">
+						<option value=></option>
+						<option value=1>Easy</option>
+						<option value=2>Manageable</option>
+						<option value=3>Difficult</option>
+						<option value=4>Rocket Science</option>
+				  	</select>
+				</div>
+
+				<!-- Grading Score-->
+				<div class="bar-group">
+					<h3>Grading & Leniency</h3>
+					<select class="review" id="grading" ng-model="grading">
+						<option value=></option>
+					    <option value=1>Sadistic Curve</option>
+					    <option value=2>Hard</option>
+					    <option value=3>Fair</option>
+					    <option value=4>GPA Booster</option>
+				 	</select>
+				</div>
+				<br>
 		<div class="box">
 			<p id="guidelines">Some things to think about while writing your review:</p>
 			<ul>
@@ -65,50 +107,6 @@
 		</div>
 		<br>
 	</div>
-
-
-	<!-- Submitting Review -->
-	<!-- Only shows if the user is logged in -->
-	<div id="submit-review" class="wrapper" ng-show="user.email">
-		<!-- Bars -->
-		<div class="br-wrapper br-theme-bars-movie">
-			<!-- Values chosen by reviewer -->
-			<div class="bar-group">
-				<!-- Workload Score-->
-				<h3>Workload</h3>
-			  	<select class="review" id="workload" ng-model="workload">
-			  		<option value=></option>
-			  	    <option value=1>Little</option>
-			  	    <option value=2>Fair</option>
-			  	    <option value=3>A Lot</option>
-			  	    <option value=4>Torture</option>
-			  	</select>
-			</div>
-
-			<!-- Difficulty Score-->
-			<div class="bar-group">
-				<h3>Difficulty</h3>
-				<select class="review" id="difficulty" ng-model="difficulty">
-					<option value=></option>
-					<option value=1>Easy</option>
-					<option value=2>Manageable</option>
-					<option value=3>Difficult</option>
-					<option value=4>Rocket Science</option>
-			  	</select>
-			</div>
-
-			<!-- Grading Score-->
-			<div class="bar-group">
-				<h3>Grading & Leniency</h3>
-				<select class="review" id="grading" ng-model="grading">
-					<option value=></option>
-				    <option value=1>Sadistic Curve</option>
-				    <option value=2>Hard</option>
-				    <option value=3>Fair</option>
-				    <option value=4>GPA Booster</option>
-			 	</select>
-			</div>
-			<br>
 
 			<!-- Rest of review; form for instructor name and review -->
 			<div id="review-form">

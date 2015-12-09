@@ -48,7 +48,7 @@
             <input type="password" class="form-input" name="newPasswordConfirmField" id="new-password-confirm" ng-model="newPasswordConfirm" required />
             <p ng-show="signup.newPasswordConfirmField.$toucheds && newPasswordConfirm != newPassword">passwords do not match</p>
             <p ng-show="signup.newPasswordConfirmField.$valid && newPasswordConfirm == newPassword">passwords match</p>
-        </fieldset> 
+        </fieldset>
 
         <button type="submit" ng-click="signUp()" ng-disabled="signup.$invalid || newPassword != newPasswordConfirm" class="btn btn-primary">Sign Up</button>
     </form>
@@ -56,7 +56,7 @@
     <br><br><hr>
 
     <div ng-show="!signUpView" id="sign">
-        <span>Don't have an account yet? </span>
+        <span>Don't have an account yet?  </span>
         <button ng-click="signUpView = true" class="btn">Sign Up</button>
     </div>
     <div ng-show="signUpView" id="sign">
