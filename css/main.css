@@ -180,14 +180,14 @@ ul {
 #login, #signup {
   text-align: left;
   w
-  margin-right: 30%;
-  margin-left: 30%;
+  margin-right: 20%;
+  margin-left: 20%;
   font-size: 16px;
 }
 
 #sign {
   /*width: 100%;*/
-  margin-left: 30%;
+  margin-left: 20%;
   font-size: 16px;
   /*text-align: center;*/
 }
