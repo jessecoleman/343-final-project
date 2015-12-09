@@ -42,7 +42,7 @@
             <p ng-show="signup.newPasswordField.$valid">password valid</p>
         </fieldset>
 
-        <!-- Confirming user's desired password -->!
+        <!-- Confirming user's desired password -->
         <fieldset>
             <label for="new-password-confirm">confirm password</label><br>
             <input type="password" class="form-input" name="newPasswordConfirmField" id="new-password-confirm" ng-model="newPasswordConfirm" required />
@@ -56,11 +56,11 @@
     <br><br><hr>
 
     <div ng-show="!signUpView" id="sign">
-        <p>Don't have an account yet? </p>
+        <span>Don't have an account yet? </span>
         <button ng-click="signUpView = true" class="btn">Sign Up</button>
     </div>
     <div ng-show="signUpView" id="sign">
-        <p>Already have an account?  </p>
+        <span>Already have an account?  </span>
         <button ng-click="signUpView = false" class="btn">Sign In</button>
     </div>
 </div>

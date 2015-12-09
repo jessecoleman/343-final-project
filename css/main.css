@@ -1,53 +1,41 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900);
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.4;
-  margin: 0;
-  color: #323232;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.4;
+    margin: 0;
+    color: #323232;
 
 }
 
 #bottom, #left, #right {
     background: #BBDAF6;
     position: fixed;
-  z-index: 1;
-    }
-    #left, #right {
-        top: 0; bottom: 0;
-        width: 25px;
-        }
-        #left { left: 0; }
-        #right { right: 0; }
-
-    #bottom {
-        left: 0; right: 0;
-        height: 25px;
-        }
-
-        #bottom { bottom: 0;
+    z-index: 1;
 }
 
-#bottom, #left, #right {
-    background: #BBDAF6;
-    position: fixed;
-  z-index: 1;
-    }
-    #left, #right {
-        top: 0; bottom: 0;
-        width: 17px;
-        }
-        #left { left: 0; }
-        #right { right: 0; }
+#left, #right {
+    top: 0; bottom: 0;
+    width: 25px;
+}
 
-    #bottom {
-        left: 0; right: 0;
-        height: 17px;
-        }
+#left { 
+  left: 0; 
+}
 
-        #bottom { bottom: 0;
+#right {
+  right: 0; 
+}
+
+#bottom {
+    left: 0; right: 0;
+    height: 25px;
+}
+
+#bottom { 
+  bottom: 0;
 }
 
 .box {
@@ -55,21 +43,21 @@ body {
 }
 
 #content {
-  padding: 2em;
-  padding-top: 6em;
-
-  height: 100%;
-  margin: 0;
+    padding: 2em;
+    padding-top: 6em;
+    height: 100%;
+    margin: 0;
 }
 
 #id {
-  color: black;
+    color: black;
 }
 
 #guidelines {
-  font-size: 20px;
-  margin-bottom: 16px;
+    font-size: 20px;
+    margin-bottom: 16px;
 }
+
 nav {
     background-color: #384149;
     display: table;
@@ -77,12 +65,10 @@ nav {
     height: 4em;
     padding-left: 2em;
     padding-right: 2em;
-
     position: fixed;
     z-index: 3;
     left: 0;
     top: 0;
-
     color: #e5e5e5;
 }
 
@@ -112,27 +98,23 @@ nav a:hover {
 
 div h1 {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 2em;
-  font-weight: 900;
-  text-align: center;
-
-  color: #384149;
+    font-size: 2em;
+    font-weight: 900;
+    text-align: center;
+    color: #384149;
 }
 
 h3 {
     font-weight: 900;
-
     font-family: 'Source Sans Pro', sans-serif;
     color: #384149;
-
     margin-bottom: 0.3em;
-
     color: #384149;
 }
 
 h2, h4, h6 {
-  font-family: 'Source Sans Pro', sans-serif;
-  color: #384149;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #384149;
 }
 
 li {
@@ -146,67 +128,63 @@ ul {
 }
 
 #email, #password, #new-email, #new-password, #new-password-confirm {
-  margin-top: 1em;
-  margin-bottom: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 #browse {
-  line-height: 2;
+    line-height: 2;
 }
 
 #browse a {
-  color: #4c4c4c;
-  text-decoration: none;
-  font-size: 11pt;
+    color: #4c4c4c;
+    text-decoration: none;
+    font-size: 11pt;
 }
 
 #browse ul {
-  padding-left: 0;
+    padding-left: 0;
 }
 
 #browse h3 {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 #submit-review {
-  margin-left: 0;
+    margin-left: 0;
 }
 
 .bar-group {
-  margin: 0.5em;
-  margin-bottom: 2.2em;
+    margin: 0.5em;
+    margin-bottom: 2.2em;
 }
 
 #login, #signup {
-  text-align: left;
-  w
-  margin-right: 20%;
-  margin-left: 20%;
-  font-size: 16px;
+    text-align: left;
+    margin-right: 20%;
+    margin-left: 20%;
+    font-size: 16px;
 }
 
 #sign {
-  /*width: 100%;*/
-  margin-left: 20%;
+  text-align: center;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
   font-size: 16px;
-  /*text-align: center;*/
 }
 
 #logo {
-  margin-top: 2.1em;
-
-  text-align: center;
-  font-size: 5em;
-  font-family: 'Source Sans Pro';
-  font-weight: 900;
-
-  color: #2c343a;
+    margin-top: 2.1em;
+    text-align: center;
+    font-size: 5em;
+    font-family: 'Source Sans Pro';
+    font-weight: 900;
+    color: #2c343a;
 }
 
-
-
 .results {
-  margin-left: 3em;
+    margin-left: 3em;
 }
 
 #results {
@@ -235,80 +213,80 @@ ul {
 }
 
 #add {
-  text-decoration: none;
-  color: #BBDAF6 !important;
+    text-decoration: none;
+    color: #BBDAF6 !important;
 }
 
 #add:hover {
-  color: #8298ac !important;
+    color: #8298ac !important;
 }
 
 .pointer:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 div.no-margin-top {
-  margin-top: 0 !important;
+    margin-top: 0 !important;
 }
 
 #userRate {
-  text-align: right;
-  color: #384149;
+    text-align: right;
+    color: #384149;
 }
 
 #class-des {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 #class-title, #course-number {
-  font-size: 48px;
-  margin-bottom: 0.5em;
-  text-align: left;
+    font-size: 48px;
+    margin-bottom: 0.5em;
+    text-align: left;
 }
 
 #description {
-  margin-left: 1.5em;
-  font-size: 18px;
-  width: 50%;
+    margin-left: 1.5em;
+    font-size: 18px;
+    width: 50%;
 }
 
 #addClass {
-  margin-left: 1.5em;
-  font-size: 16px;
+    margin-left: 1.5em;
+    font-size: 16px;
 }
 
 #classTitle, #courseNumber, #descript {
-  width: 15%;
-  margin-left: 1.5em;
-  margin-bottom: 1em;
-  font-size: 16px;
+    width: 15%;
+    margin-left: 1.5em;
+    margin-bottom: 1em;
+    font-size: 16px;
 }
 
 #descript {
-  width: 50%;
+    width: 50%;
 }
 
 #profName {
-  margin-bottom: 0.25em;
+    margin-bottom: 0.25em;
 }
 
 #user {
-  margin-bottom: 0.5em;
-  color: #5f666d;
-  font-style: italic;
-  font-weight: normal;
+    margin-bottom: 0.5em;
+    color: #5f666d;
+    font-style: italic;
+    font-weight: normal;
 }
 
 #home .form-input[type=text] {
-  border-color: #BBDAF6;
+    border-color: #BBDAF6;
 }
 
 form {
-  color: #384149;
+    color: #384149;
 }
 
 #reviewText {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 #overview {
@@ -316,7 +294,7 @@ form {
 }
 
 #totalReview {
-  display: inline;
-  font-style: italic;
-  color: #5f666d;
+    display: inline;
+    font-style: italic;
+    color: #5f666d;
 }
