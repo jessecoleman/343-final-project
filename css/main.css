@@ -37,17 +37,21 @@ body {
     }
     #left, #right {
         top: 0; bottom: 0;
-        width: 15px;
+        width: 17px;
         }
         #left { left: 0; }
         #right { right: 0; }
 
     #bottom {
         left: 0; right: 0;
-        height: 15px;
+        height: 17px;
         }
 
         #bottom { bottom: 0;
+}
+
+.box {
+  background-color: #f1f7fd;
 }
 
 #content {
@@ -72,7 +76,7 @@ nav {
     width: 100%;
     height: 4em;
     padding-left: 2em;
-    /*padding-right: 2em;*/
+    padding-right: 2em;
 
     position: fixed;
     z-index: 3;
@@ -111,6 +115,8 @@ div h1 {
   font-size: 2em;
   font-weight: 900;
   text-align: center;
+
+  color: #384149;
 }
 
 h3 {
@@ -120,6 +126,13 @@ h3 {
     color: #384149;
 
     margin-bottom: 0.3em;
+
+    color: #384149;
+}
+
+h2, h4, h6 {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #384149;
 }
 
 li {
@@ -165,7 +178,7 @@ ul {
 }
 
 #login, #signup {
-  text-align: right;
+  text-align: left;
   margin-right: 30%;
   margin-left: 30%;
   font-size: 16px;
@@ -173,17 +186,26 @@ ul {
 
 #sign {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 21%;
   font-size: 16px;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 #logo {
-    text-align: center;
+  margin-top: 3em;
+
+  text-align: center;
   font-size: 5em;
   font-family: 'Source Sans Pro';
   font-weight: 900;
+
+  color: #2c343a;
+}
+
+
+
+.results {
+  margin-left: 3em;
 }
 
 #results {
@@ -230,6 +252,7 @@ div.no-margin-top {
 
 #userRate {
   text-align: right;
+  color: #384149;
 }
 
 #class-des {
@@ -237,9 +260,9 @@ div.no-margin-top {
 }
 
 #class-title, #course-number {
-  margin-left: 1em;
   font-size: 48px;
   margin-bottom: 0.5em;
+  text-align: left;
 }
 
 #description {
@@ -270,10 +293,19 @@ div.no-margin-top {
 
 #user {
   margin-bottom: 0.5em;
-  color: gray;
-  font-style: italic;
+  color: #5f666d;
+  /*font-style: italic;*/
   font-weight: normal;
 }
+
+#home .form-input[type=text] {
+  border-color: #BBDAF6;
+}
+
+form {
+  color: #384149;
+}
+
 
 #reviewText {
   font-size: 16px;
@@ -285,6 +317,6 @@ div.no-margin-top {
 
 #totalReview {
   display: inline;
-  font-style: italic;
-  color: gray;
+  /*font-style: italic;*/
+  color: #5f666d;
 }

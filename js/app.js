@@ -53,7 +53,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	$scope.clicked = false;
 })
 .controller('BrowseController', function($scope) {
-	$scope.clicked = false; 
+	$scope.clicked = false;
 })
 .controller('LoginController', function($scope, $state) {
   // display sign in first
@@ -121,9 +121,9 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 	$scope.classes = $firebaseArray(classesRef);
 
 	$scope.submitClass = function() {
-		var newClass = classesRef.push(); 
+		var newClass = classesRef.push();
 		newClass.set({
-			'classTitle': $scope.classTitle + $scope.courseNumber,
+			'classTitle': $scope.classTitle + " (" + $scope.courseNumber + ")",
 			'description': $scope.description,
 			'id': newClass.key()
 		});
@@ -161,19 +161,22 @@ var app = angular.module('app', ['firebase', 'ui.router'])
   			'grading': grading.value,
   			'prof': $scope.prof,
   			'text': $scope.text,
-  			'user': $scope.user.email 
+  			'user': $scope.user.email
   		});
 
-  		$scope.reviews.$save(); 
+  		$scope.reviews.$save();
   		$scope.workload = workload.value;
   		$scope.difficulty = difficulty.value;
   		$scope.grading = grading.value;
+
+      $scope.prof = "";
+      $scope.text = ""; 
     };
 
     //$scope.review = $stateParams.class.reviews
 	$scope.classTitle = $stateParams.class.classTitle;
 	$scope.classDescription = $stateParams.class.description;
-	
+
 	var workAvg = 0;
 	var diffAvg = 0;
 	var gradAvg = 0;
@@ -182,14 +185,14 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		var workTotal = 0;
 		var diffTotal = 0;
 		var gradTotal = 0;
-		var count = 0; 
+		var count = 0;
 		var revArr = $scope.reviews;
 		angular.forEach(revArr, function(review) {
 			count++;
-			workTotal += parseInt(review.workload); 
+			workTotal += parseInt(review.workload);
 			diffTotal += parseInt(review.difficulty);
 			gradTotal += parseInt(review.grading);
-		});	
+		});
 
 		// Avg to 1 decimal for displaying
 		workAvg = Math.round(workTotal / count * 10) / 10;
@@ -214,6 +217,6 @@ var app = angular.module('app', ['firebase', 'ui.router'])
 		$('#avgDifficulty').barrating('set', Math.round(diffAvg));
 		$('#avgGrading').barrating('set', Math.round(gradAvg));
 	})
-	
+
     $scope.review = $stateParams.class.reviews;
 });

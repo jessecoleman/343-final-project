@@ -1,48 +1,53 @@
-<p ng-show="error" ng-bind="error"></p>
-<form role="form" name="login" id="login" ng-show="!signUpView" novalidate>
-  <fieldset>
-      <label for="email">email</label><br>
-      <input type="email" class="form-input" name="emailField" id="email" ng-model="email" ng-minlength="6" required />
-      <p ng-show="login.emailField.$valid">email address valid</p>
-      <p ng-show="login.emailField.$touched && login.emailField.$error.email">invalid email address</p>
-  </fieldset>
-  <fieldset>
-    <label for="password">password</label><br>
-    <input type="password" class="form-input" id="password" name="passwordField" ng-model="password" ng-minlength="6" required />
-    <p ng-show="login.passwordField.$valid">password valid</p>
-    <p ng-show="login.passwordField.$touched && login.passwordField.$error.minlength">password must be at least 6 characters</p>
-  </fieldset>
-  <button type="submit" ng-click="signIn()" ng-disabled="login.$invalid" class="btn">Login</button>
-</form>
-<br>
-<form role="form" name="signup" id="signup" ng-show="signUpView" novalidate>
-  <fieldset>
-    <label for="new-email">email</label><br>
-    <input type="email" class="form-input" name="newEmailField" id="new-email" ng-model="newEmail" required />
-    <p ng-show="signup.newEmailField.$touched && signup.newEmailField.$error.email">invalid email address</p>
-    <p ng-show="signup.newEmailField.$valid">email valid</p>
-  </fieldset>
-  <fieldset>
-    <label for="password">password</label><br>
-    <input type="password" class="form-input" name="newPasswordField" id="new-password" ng-minlength="6" ng-model="newPassword" required />
-    <p ng-show="signup.newPasswordField.$touched && signup.newPasswordField.$error.minlength">password must be at least 6 characters</p>
-    <p ng-show="signup.newPasswordField.$valid">password valid</p>
-  </fieldset>
-  <fieldset>
-    <label for="new-password-confirm">confirm password</label><br>
-    <input type="password" class="form-input" name="newPasswordConfirmField" id="new-password-confirm" ng-model="newPasswordConfirm" required />
-    <p ng-show="signup.newPasswordConfirmField.$toucheds && newPasswordConfirm != newPassword">passwords do not match</p>
-    <p ng-show="signup.newPasswordConfirmField.$valid && newPasswordConfirm == newPassword">passwords match</p>
-  </fieldset>
-  <button type="submit" ng-click="signUp()" ng-disabled="signup.$invalid || newPassword != newPasswordConfirm" class="btn">Sign Up</button>
-</form>
-<br>
+<div class="wrapper">
 
-<div ng-show="!signUpView" id="sign">
-  <span>Don't have an account yet?  </span>
-  <button ng-click="signUpView = true" class="btn">Sign Up</button>
-</div>
-<div ng-show="signUpView" id="sign">
-<span>Already have an account?  </span>
-<button ng-click="signUpView = false" class="btn">Sign In</button>
-</div>
+  <div ng-show="!signUpView" id="sign">
+    <p>Don't have an account yet? </p>
+    <button ng-click="signUpView = true" class="btn">Sign Up</button>
+  </div>
+  <div ng-show="signUpView" id="sign">
+  <p>Already have an account?  </p>
+  <button ng-click="signUpView = false" class="btn">Sign In</button>
+  </div>
+  </div>
+  <br>
+  <br>
+  <hr>
+
+  <p ng-show="error" ng-bind="error"></p>
+  <form role="form" name="login" id="login" ng-show="!signUpView" novalidate>
+    <fieldset>
+        <label for="email">Email</label><br>
+        <input type="email" class="form-input" name="emailField" id="email" ng-model="email" ng-minlength="6" required />
+        <p ng-show="login.emailField.$valid">email address valid</p>
+        <p ng-show="login.emailField.$touched && login.emailField.$error.email">invalid email address</p>
+    </fieldset>
+    <fieldset>
+      <label for="password">Password</label><br>
+      <input type="password" class="form-input" id="password" name="passwordField" ng-model="password" ng-minlength="6" required />
+      <p ng-show="login.passwordField.$valid">password valid</p>
+      <p ng-show="login.passwordField.$touched && login.passwordField.$error.minlength">password must be at least 6 characters</p>
+    </fieldset>
+    <button type="submit" ng-click="signIn()" ng-disabled="login.$invalid" class="btn">Login</button>
+  </form>
+  <br>
+  <form role="form" name="signup" id="signup" ng-show="signUpView" novalidate>
+    <fieldset>
+      <label for="new-email">email</label><br>
+      <input type="email" class="form-input" name="newEmailField" id="new-email" ng-model="newEmail" required />
+      <p ng-show="signup.newEmailField.$touched && signup.newEmailField.$error.email">invalid email address</p>
+      <p ng-show="signup.newEmailField.$valid">email valid</p>
+    </fieldset>
+    <fieldset>
+      <label for="password">password</label><br>
+      <input type="password" class="form-input" name="newPasswordField" id="new-password" ng-minlength="6" ng-model="newPassword" required />
+      <p ng-show="signup.newPasswordField.$touched && signup.newPasswordField.$error.minlength">password must be at least 6 characters</p>
+      <p ng-show="signup.newPasswordField.$valid">password valid</p>
+    </fieldset>
+    <fieldset>
+      <label for="new-password-confirm">confirm password</label><br>
+      <input type="password" class="form-input" name="newPasswordConfirmField" id="new-password-confirm" ng-model="newPasswordConfirm" required />
+      <p ng-show="signup.newPasswordConfirmField.$toucheds && newPasswordConfirm != newPassword">passwords do not match</p>
+      <p ng-show="signup.newPasswordConfirmField.$valid && newPasswordConfirm == newPassword">passwords match</p>
+    </fieldset>
+    <button type="submit" ng-click="signUp()" ng-disabled="signup.$invalid || newPassword != newPasswordConfirm" class="btn">Sign Up</button>
+  </form>

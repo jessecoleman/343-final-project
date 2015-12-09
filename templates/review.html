@@ -2,6 +2,8 @@
 	<h1 id="class-title">{{class.classTitle}} {{class.courseNumber}}</h1>
 	<p class="class-des" id="class-des">{{class.description}}</p>
 
+	<hr>
+
 	<h2 id="overview">Overview </h2>
 	<h4 ng-bind="totalReview" id="totalReview"></h4>
 	<!-- bars -->
@@ -41,6 +43,7 @@
 			    <option value=4>Sadistic Curve</option>
 		  </select>
 	</div>
+	<br>
 	<hr>
 
 	<!-- review guidelines -->
@@ -49,14 +52,15 @@
 		<div class="box">
 			<p id="guidelines">Some things to think about while writing your review:</p>
 			<ul>
-				<li><b>Workload</b> - how much work did you do? How many hours do you spend a week? Is it fair?</li>
-				<li><b>Difficulty</b> - was the content of the class hard? How much of the class did you understand?</li>
-				<li><b>Grading and Leniency</b> - was the grading fair? How did the curve work?</li>
-				<li><b>Tips</b> - how to do well in this class? Does participation matter? Is the textbook useful?</li>
+				<li><b>Workload</b> - How much work did you do? How many hours do you spend a week? Is it fair?</li>
+				<li><b>Difficulty</b> - Was the content of the class hard? How much of the class did you understand?</li>
+				<li><b>Grading and Leniency</b> - Was the grading fair? How did the curve work?</li>
+				<li><b>Tips</b> - How to do well in this class? Does participation matter? Is the textbook useful?</li>
 			</ul>
 		</div>
+		<br>
 	</div>
-	<br>
+
 
 	<!-- submit review -->
 	<!-- hide if not logged in -->
@@ -105,7 +109,7 @@
 					<fieldset>
 	        		<input type="text" id="prof" class="form-input grid-item 4/12" placeholder="Instructor" ng-model="prof" required />
 					<br>
-					<textarea class="form-textarea" id="reviewText" rows="8" cols="82" placeholder="Enter your message here" ng-model="text" required></textarea>
+					<textarea class="form-textarea" id="reviewText" rows="8" cols="82" placeholder="Enter your review here" ng-model="text" required></textarea>
 					<br>
 					<input id="button" type="submit" class="btn btn-primary" value="Save" ng-click="saveReview()" ng-disabled="review.$invalid">
 					</fieldset>
@@ -113,14 +117,17 @@
 			</div>
 		</div>
 		</div>
+		<br> <br>
+		<hr>
 	</div>
-	<br>
+
+
 
 	<!-- display -->
 	<h2>Reviews</h2>
-	<div id="tips" class="wrapper" ng-repeat="review in reviews">	
+	<div id="tips" class="wrapper" ng-repeat="review in reviews">
 		<h4 id="profName">{{review.prof}}</h4>
-		<h6 id="user">Review by: {{review.user}}</h6>
+		<h6 id="user">{{review.user}}</h6>
 		<br>
 		<p class="grid-item 3/12" id="userRate">Workload: <b>{{review.workload}}</b><br>Difficulty: <b>{{review.difficulty}}</b><br>Grading & Leniency: <b>{{review.grading}}</b></p>
 		<p class="grid-item 8/12">{{review.text}}</p>

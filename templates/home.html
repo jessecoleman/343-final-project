@@ -1,4 +1,4 @@
-<!-- 
+<!--
 <div class="wrapper">
   <thead>
       <tr>Search Results for: {{search}}</tr>
@@ -12,31 +12,33 @@
       </tr>
   </tbody> -->
 
-<div class="wrapper tc">
+<div class="wrapper tc" id="home">
       <h1 id="logo">welp</h1>
       <form role="form">
 
           <div class="form-group grid">
             <fieldset>
               <p class="grid-item xs-11/12">
-                <input type="text" class="form-input" name="search" placeholder="For example – CHEM 142" ng-model="search" >
+                <input type="text" class="form-input" name="search" placeholder="Search" ng-model="search" >
               </p>
-            
+
 
             </fieldset>
 
           </div>
       </form>
-      <ul>
-          <li ng-repeat="department in departments | filter: search" ng-show="search">
-             <span class="pointer">{{department.title}}</span>
-              <a ui-sref="createClass({'department': department.$id})" id="add">+</a>
-              <br>
-              <ul>
-                  <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'department': department.$id, 'class': class.id})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
-              </ul>
-          </li>
-      </ul>
+      <div id="browse" class="tl results" >
+        <ul>
+            <li ng-repeat="department in departments | filter: search" ng-show="search">
+               <span class="pointer">{{department.title}}</span>
+                <a ui-sref="createClass({'department': department.$id})" id="add">+</a>
+                <br>
+                <ul>
+                    <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'department': department.$id, 'class': class.id})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
+                </ul>
+            </li>
+        </ul>
+      </div>
       <!-- <ul>
         <li ng-repeat="department in departments | filter:{department.classes: search}" ng-show="search">
 
@@ -52,7 +54,7 @@
           </li>
       </ul> -->
 
-<!-- 
+<!--
       <div class="category" ng-repeat="department in departments | filter: search" ng-show="search">
           <a href="templates/review.html"><h3>{{department.title}}</h3></a>
       </div>
