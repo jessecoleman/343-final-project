@@ -16,22 +16,20 @@
 		<!-- FA -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-		<!-- Custom files -->
+		<!-- Custom Files -->
 		<script type="text/javascript" src="js/app.js"></script>
 		<link rel="stylesheet" href="css/cardinal.min.css" />
 		<link rel="stylesheet" href="css/main.css" />
 
-		<!-- bar rating -->
+		<!-- Bar Rating -->
 		<link rel="stylesheet" href="bower_components/jquery-bar-rating/dist/themes/bars-movie.css">
 		<script src="bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
-
 	</head>
 
 	<body ng-app="app" ng-controller="MainController">
-
+		<!-- Top navigation bar -->
 		<nav class="z10">
 			<ul>
-
 				<li><a ui-sref="home">search</a></li>
 				<li><a ui-sref="browse">browse</a></li>
 			</ul>
@@ -42,6 +40,7 @@
 			</ul>
 		</nav>
 
+		<!-- Keeps the nav at the top of the screen -->
 		<div id="left" class="z9"></div>
 		<div id="right" class="z9"></div>
 		<div id="bottom" class="z9"></div>
@@ -49,7 +48,5 @@
 		<!-- ui-view loads html fragments from templates directory -->
 		<div ui-view class="wrapper wrapper-full-bleed" id="content">
 		</div>
-
 	</body>
-
 </html>

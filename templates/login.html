@@ -1,5 +1,6 @@
-<div class="wrapper">
 
+<div class="wrapper">
+  <br>
   <div ng-show="!signUpView" id="sign">
     <p>Don't have an account yet? </p>
     <button ng-click="signUpView = true" class="btn">Sign Up</button>
@@ -8,7 +9,7 @@
   <p>Already have an account?  </p>
   <button ng-click="signUpView = false" class="btn">Sign In</button>
   </div>
-  </div>
+
   <br>
   <br>
   <hr>
@@ -51,3 +52,4 @@
     </fieldset>
     <button type="submit" ng-click="signUp()" ng-disabled="signup.$invalid || newPassword != newPasswordConfirm" class="btn">Sign Up</button>
   </form>
+</div>

@@ -1,16 +1,17 @@
+<!-- Fragment for page that lists all departments -->
 <div class="wrapper">
     <div>
         <div id="browse">
             <h3>Departments</h3>
             <ul>
                 <li ng-repeat="department in departments">
-
                    <span ng-click="clicked ? clicked = false : clicked = true" class="pointer"> <i class="fa fa-caret-right" ng-show="!clicked && department.classes"></i><i class="fa fa-caret-down" ng-show="clicked && department.classes"></i> {{department.title}}</span>
 
+                    <!-- Displays the name of each department -->
                     <a ui-sref="createClass({'department': department.$id})" id="add">+</a>
 
                     <br>
-
+                    <!-- Displays classes in each department when clicked -->
                     <ul ng-show="clicked">
                         <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'department': department.$id, 'class': class.id})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
                     </ul>

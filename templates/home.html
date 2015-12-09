@@ -1,17 +1,3 @@
-<!--
-<div class="wrapper">
-  <thead>
-      <tr>Search Results for: {{search}}</tr>
-  </thead>
-  <tbody>
-      <tr ng-repeat="department in departments | filter:search">
-          <td>{{department.title}}</td>
-      </tr>
-      <tr ng-repeat="class in department.classes">
-          <td>{{class.title}}</td>
-      </tr>
-  </tbody> -->
-
 <div class="wrapper tc" id="home">
       <h1 id="logo">welp</h1>
       <form role="form">
@@ -39,27 +25,4 @@
             </li>
         </ul>
       </div>
-      <!-- <ul>
-        <li ng-repeat="department in departments | filter:{department.classes: search}" ng-show="search">
-
-             <span> {{department.title}}</span>
-
-              <a ui-sref="createClass({'department': department})" id="add">+</a>
-
-              <br>
-
-              <ul>
-                  <li ng-repeat="class in department.classes"><a ui-sref="reviewClass({'class': class})">{{class.classTitle + ' ' + class.courseNumber}}</a></li>
-              </ul>
-          </li>
-      </ul> -->
-
-<!--
-      <div class="category" ng-repeat="department in departments | filter: search" ng-show="search">
-          <a href="templates/review.html"><h3>{{department.title}}</h3></a>
-      </div>
-      <div class="category" ng-repeat="class in department.classes">
-          <a href="templates/review.html"><h3>{{class.classTitle}}</h3></a>
-      </div> -->
-
-</div>
+    </div>
