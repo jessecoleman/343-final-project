@@ -169,8 +169,7 @@ var app = angular.module('app', ['firebase', 'ui.router'])
   		$scope.difficulty = difficulty.value;
   		$scope.grading = grading.value;
 
-      $scope.prof = "";
-      $scope.text = ""; 
+      location.reload(); 
     };
 
     //$scope.review = $stateParams.class.reviews
