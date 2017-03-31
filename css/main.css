@@ -152,11 +152,17 @@ ul {
 
 #submit-review {
     margin-left: 0;
+    margin-right: 0;
+    width: 100%;
 }
 
 .bar-group {
     margin: 0.5em;
     margin-bottom: 2.2em;
+}
+
+.br-wrapper {
+    padding-left: 0;
 }
 
 #login, #signup {
@@ -275,6 +281,8 @@ div.no-margin-top {
     color: #5f666d;
     font-style: italic;
     font-weight: normal;
+
+    display: none;
 }
 
 #home .form-input[type=text] {
@@ -297,4 +305,33 @@ form {
     display: inline;
     font-style: italic;
     color: #5f666d;
+}
+
+
+/*nirawit 3/30/17*/
+
+
+.reviewContent {
+    font-size: 18px;
+    padding-left: 2rem;
+}
+
+.mb3 {
+    margin-bottom: 5rem;
+}
+
+.fr {
+    float: right;
+}
+
+.dib {
+    display: inline-block;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.w-80 {
+    width: 80%;
 }

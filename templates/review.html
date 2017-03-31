@@ -58,8 +58,10 @@
 		<!-- Submitting Review -->
 		<!-- Only shows if the user is logged in -->
 		<div id="submit-review" class="wrapper" ng-show="user.email">
+
+		<div class="w-100 db mb3">
 			<!-- Bars -->
-			<div class="br-wrapper br-theme-bars-movie">
+			<div class="br-wrapper br-theme-bars-movie dib grid-item 4/12">
 				<!-- Values chosen by reviewer -->
 				<div class="bar-group">
 					<!-- Workload Score-->
@@ -75,7 +77,7 @@
 
 				<!-- Difficulty Score-->
 				<div class="bar-group">
-					<h3>Difficulty</h3>
+					<h3>Content Difficulty</h3>
 					<select class="review" id="difficulty" ng-model="difficulty">
 						<option value=></option>
 						<option value=1>Easy</option>
@@ -96,8 +98,11 @@
 					    <option value=4>Sadistic Curve</option>
 				 	</select>
 				</div>
-				<br>
-		<div class="box">
+			</div>
+
+				<!-- <br> -->
+
+		<div class="box dib grid-item 7/12 fr">
 			<p id="guidelines">Some things to think about while writing your review:</p>
 			<ul>
 				<li><b>Workload</b> - How much work did you do? How many hours do you spend a week? Is it fair?</li>
@@ -106,6 +111,8 @@
 				<li><b>Tips</b> - How to do well in this class? Does participation matter? Is the textbook useful?</li>
 			</ul>
 		</div>
+
+
 		<br>
 	</div>
 
@@ -117,7 +124,7 @@
 					<br>
 					<textarea class="form-textarea" id="reviewText" rows="8" cols="82" placeholder="Enter your review here" ng-model="text" required></textarea>
 					<br>
-					<input id="button" type="submit" class="btn btn-primary" value="Save" ng-click="saveReview()" ng-disabled="review.$invalid">
+					<input id="button" type="submit" class="btn btn-primary fr" value="Save" ng-click="saveReview()" ng-disabled="review.$invalid">
 					</fieldset>
 	      		</form>
 				<br><br><hr>
@@ -132,8 +139,8 @@
 		<h4 id="profName">{{review.prof}}</h4>
 		<h6 id="user">{{review.user}}</h6>
 		<br>
-		<p class="grid-item 3/12" id="userRate">Workload: <b>{{review.workload}}</b><br>Difficulty: <b>{{review.difficulty}}</b><br>Grading & Leniency: <b>{{review.grading}}</b></p>
-		<p class="grid-item 8/12">{{review.text}}</p>
+		<p class="grid-item 3/12" id="userRate">Workload: <b>{{review.workload}}</b><br>Content Difficulty: <b>{{review.difficulty}}</b><br>Grading & Leniency: <b>{{review.grading}}</b></p>
+		<p class="grid-item 8/12 reviewContent">{{review.text}}</p>
 		<hr>
 	</div>
 </div>
